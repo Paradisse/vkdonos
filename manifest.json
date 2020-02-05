@@ -1,0 +1,19 @@
+{
+  "name": "dono$",
+  "description": "Расширение содержащие в себе базу кремлеботов",
+  "version": "0.1",
+  "manifest_version": 2,
+  "permissions": [
+    "storage",
+    "activeTab",
+    "https://vk.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://vk.com/*"],
+      "js": ["js/script.js"],
+      "css": ["css/styles.css"],
+      "run_at": "document_end"
+    }
+  ]
+}
