@@ -4,17 +4,17 @@ function addButtons() {
 	comments.forEach(function(button) {
 		button.className += ' cremleBot';
 		const emoji = document.createElement('div');
-		const conteiner_emoji = document.createElement('div');
+		const container_emoji = document.createElement('div');
 		const but_maket = document.createElement('img');
 
 		but_maket.src = 'https://i.imgur.com/qkwQqOe.png'
 		// emoji.innerHTML = "👹";
 		// emoji.src = 'https://i.imgur.com/qkwQqOe.png';
-		conteiner_emoji.className = 'emoji_conteiner';
+		container_emoji.className = 'emoji_container';
 		emoji.className = 'emoji_button_donos';
 		but_maket.className = 'emoji_button_donos';
 		but_maket.style.opacity = '0';
-		but_maket.title = 'Внести в базу бяк этого юзера'
+		but_maket.title = 'Донос'
 
 
 		let icon = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\
@@ -32,9 +32,9 @@ function addButtons() {
 		    svgimg[i].innerHTML = icon; // вставляем в них иконку
 		}
 
-		conteiner_emoji.appendChild(emoji);
-		conteiner_emoji.appendChild(but_maket);
-		button.after(conteiner_emoji);
+		container_emoji.appendChild(emoji);
+		container_emoji.appendChild(but_maket);
+		button.after(container_emoji);
 
 	});
 	get_colors();	
@@ -47,16 +47,16 @@ function addButtons() {
 }
 
 function addSetting() {
-	const setting_conteiner = document.querySelector('div.chat_onl_inner');
+	const setting_container = document.querySelector('div.chat_onl_inner');
 	const setting_main = document.createElement('div');
 	const setting = document.createElement('img');
 
 	setting.src = 'https://i.imgur.com/3h636wU.png';
 	setting.className = 'setting_donos';
 	setting_main.className = 'setting_donos';
-	setting_conteiner.appendChild(setting_main);
+	setting_container.appendChild(setting_main);
 	setting_main.appendChild(setting)
-	setting_conteiner.insertAdjacentHTML('beforeBegin',	
+	setting_container.insertAdjacentHTML('beforeBegin',	
 		'<div class="setting"><div class="menu_setting">\
 			<ul>\
 				<b><li>Настройки</li></b><br>\
@@ -75,7 +75,7 @@ function ReportInput(node) {
 	name_report.innerText = node[1].innerText;
 	comment_report.innerText = node[2].innerText;
 
-	window.addEventListener('click', function(event) {
+	window.addEventListener('click', function(event) { // здесь нужно сделать добавление в бд
 		if (event.target.className === 'save_report'){
 			console.log('В базу был записан', node[0] + '. Причина:', input_report.value);
 			input_report.value = '';
@@ -168,8 +168,8 @@ window.setTimeout(function () {
 	addSetting();
 }, 300)
 
-// setInterval(function(){ 
-//     console.log('Прошло 5 секунд и я сейчас обновлюсь');
-//     addButtons();
-//     console.log('Обновление прошло')
-// }, 5000);
+setInterval(function(){ 
+     //console.log('Прошло n секунд и я сейчас обновлюсь');
+     addButtons();
+     //console.log('Обновление прошло')
+ }, 2500);
