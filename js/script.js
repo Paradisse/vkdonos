@@ -75,7 +75,7 @@ function ReportInput(node) {
 	name_report.innerText = node[1].innerText;
 	comment_report.innerText = node[2].innerText;
 
-	window.addEventListener('click', function(event) { // здесь нужно сделать добавление в бд
+	window.addEventListener('click', function(event) { // здесь будет добавление в бд
 		if (event.target.className === 'save_report'){
 			console.log('В базу был записан', node[0] + '. Причина:', input_report.value);
 			input_report.value = '';
