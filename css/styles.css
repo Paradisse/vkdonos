@@ -1,4 +1,4 @@
-.emoji_container{
+.emoji_conteiner{
     margin: 0;
     padding: 0; 
     padding-left: 10px;
@@ -71,7 +71,7 @@ img.emoji_button_donos{
     height: 100%;
     z-index: 666;
     position: fixed;
-    display: none;
+    /*display: none;*/
     justify-content: center;
     text-align: center;
 }
@@ -94,4 +94,13 @@ img.emoji_button_donos{
     font-size: 16px;
     font-family: Roboto;
     padding-bottom: 25px;
+}
+
+.status_report{
+    display: block;
+    margin-left: 10px;
+    margin-top: 1px; 
+}
+.id_user_vk{
+    display: none;
 }

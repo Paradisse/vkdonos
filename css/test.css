@@ -1,0 +1,58 @@
+.emoji_conteiner{
+    margin: 0;
+    padding: 0; 
+    padding-left: 10px;
+    display: -webkit-box;
+}
+img.emoji_button_donos{
+    position: absolute;
+    -moz-margin-start: -15px
+}
+.emoji_button_donos{
+	/*position: absolute;*/
+	/*left: 38%;*/
+	width: 15px;
+	height: 15px;
+}
+
+.status_report{
+    display: block;
+    margin-left: 25px;
+    margin-top: 1px; 
+}
+
+.delete_cremleBot{
+/*    width: 10px;
+    height: 10px;*/
+    background: #f00;
+    border-radius: 50px;
+    position: absolute;
+}
+
+.rating_conteiner{
+    background: rgba(29,32,34,.7);
+    height: 25px;
+    position: absolute;
+    color: #fff;
+
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.line_rating{
+    position: absolute;
+    opacity: .5;
+    width: 200px;
+    height: 25px;
+    transform: translateX(-250px);
+}
+
+.status_content{
+    width: 165px;
+    float: left;
+    color: #828282;
+}
+.status_text{
+    color: #2a5885;
+}
