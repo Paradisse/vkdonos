@@ -18,10 +18,12 @@
       "matches": ["https://vk.com/*"],
       "js": [
         "js/script.js",
-        "js/test_but__page.js",
-        "js/test_but__com.js"
+        "js/test_but__page.js"
       ],
-      "css": ["css/styles.css"],
+      "css": [
+        "css/styles.css",
+        "css/test.css"
+      ],
       "run_at": "document_end"
     }
   ]
