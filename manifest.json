@@ -18,7 +18,8 @@
       "matches": ["https://vk.com/*"],
       "js": [
         "js/script.js",
-        "js/test_but__page.js"
+        "js/test_but__page.js",
+        "js/test_but__com.js"
       ],
       "css": ["css/styles.css"],
       "run_at": "document_end"
