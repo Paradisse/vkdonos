@@ -266,3 +266,5 @@ setInterval(function(){
     // setTimeout(() => {  addButtons(); }, 1000);
 	addButtons()
 }, 5000);
+
+// строка для теста батника
