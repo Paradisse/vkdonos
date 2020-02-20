@@ -16,8 +16,14 @@
   "content_scripts": [
     {
       "matches": ["https://vk.com/*"],
-      "js": ["js/script.js"],
-      "css": ["css/styles.css"],
+      "js": [
+        "js/script.js",
+        "js/test_but__page.js"
+      ],
+      "css": [
+        "css/styles.css",
+        "css/test.css"
+      ],
       "run_at": "document_end"
     }
   ]
