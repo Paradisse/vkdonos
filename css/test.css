@@ -15,12 +15,6 @@ img.emoji_button_donos{
 	height: 15px;
 }
 
-.status_report{
-    display: block;
-    margin-left: 25px;
-    margin-top: 1px; 
-}
-
 .delete_cremleBot{
 /*    width: 10px;
     height: 10px;*/
@@ -28,18 +22,6 @@ img.emoji_button_donos{
     border-radius: 50px;
     position: absolute;
 }
-
-/*.rating_conteiner{
-    background: rgba(29,32,34,.7);
-    height: 25px;
-    position: absolute;
-    color: #fff;
-
-    justify-content: center;
-    align-items: center;
-    display: flex;
-}*/
-
 .rating_conteiner{
     position: absolute;
     z-index: 1;
