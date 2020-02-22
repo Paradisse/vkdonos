@@ -1,3 +1,4 @@
+// ==============================================[ИКОНКИ ДЛЯ КНОПОК]==============================================================================================================
 let icon = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\
 		 viewBox="0 0 1024 1024" style="enable-background:new 0 0 1024 1024;" xml:space="preserve">\
 		<style type="text/css">\
@@ -17,61 +18,50 @@ let delicon = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg
 			c13.6-13.6,35.8-13.6,49.4,0l87.6,87.6l87.6-87.6c13.6-13.6,35.8-13.6,49.4,0l6.7,6.7c13.6,13.6,13.6,35.8,0,49.4L306.1,250\
 			L393.7,337.6z"/></svg>'
 
-const url = 'http:/localhost/index.php';
-let users = [];
-
-function getData(){
-	fetch(url)
-		.then(function(response) {
-			return response.json();
-		})
-		.then(function(data){
-			users = data;
-		})
-}
-
+// ====================================[ДОБАВЛЕНИЕ НОВЫХ КНОПОК К ВИДИМЫМ КОММЕНТАРИЯМ]================================================================================================================
 function addButtons() {
 	const comments = document.querySelectorAll('div:not(.cremleBot).reply_link_wrap');
-	
-	comments.forEach(function(button) {
-		button.className += ' cremleBot';
-		const emoji = document.createElement('div');
-		const conteiner_emoji = document.createElement('div');
-		const but_maket = document.createElement('img');
+	// console.log(comments)
+	if (comments.length == 0){
+		// console.log('Добавлено 0 новых кнопок');
+	}
+	else {
+		comments.forEach(function(button) {
+			button.className += ' cremleBot';
+			const emoji = document.createElement('div');
+			const conteiner_emoji = document.createElement('div');
+			const but_maket = document.createElement('img');
 
-		but_maket.src = 'https://i.imgur.com/qkwQqOe.png'
-		// emoji.innerHTML = "👹";
-		// emoji.src = 'https://i.imgur.com/qkwQqOe.png';
-		conteiner_emoji.className = 'emoji_conteiner';
-		emoji.className = 'emoji_button_donos';
-		but_maket.className = 'emoji_button_donos';
-		but_maket.style.opacity = '0';
-		but_maket.title = 'Внести в базу бяк этого юзера'
+			but_maket.src = 'https://i.imgur.com/qkwQqOe.png'
+			conteiner_emoji.className = 'emoji_conteiner';
+			emoji.className = 'emoji_button_donos';
+			but_maket.className = 'emoji_button_donos';
+			but_maket.style.opacity = '0';
+			but_maket.title = 'Внести в базу бяк этого юзера'
 
-		const status = document.createElement('div');
+			const status = document.createElement('div');
 
-		status.innerText = 0;
-		status.className = 'status_report';
-		// console.log(button)
+			status.innerText = 0;
+			status.className = 'status_report';
 
-		conteiner_emoji.appendChild(emoji);
-		conteiner_emoji.appendChild(but_maket);
-		conteiner_emoji.appendChild(status);
-		button.after(conteiner_emoji);
+			conteiner_emoji.appendChild(emoji);
+			conteiner_emoji.appendChild(but_maket);
+			conteiner_emoji.appendChild(status);
+			button.after(conteiner_emoji);
 
-	});
+		});
 
-	const svgimg = document.querySelectorAll("div.emoji_button_donos"); // находим все элементы с классом happyface
-	svgimg.forEach(function(btn){
-		btn.innerHTML = icon;
-	}); 
-	get_colors();	
-	get_report();
-
-	// console.log(Object.keys(localStorage))
-
+		const svgimg = document.querySelectorAll("div.emoji_button_donos"); // находим все элементы с классом happyface
+		svgimg.forEach(function(btn){
+			btn.innerHTML = icon;
+		}); 
+		get_colors(); // добавление кастомизации(цвет) к кнопка
+		// get_report(); // добавление рейтинга
+		// console.log('Добавлено',comments.length,'новых кнопок')
+	}
 }
 
+// ====================================[НАСТРОЙКИ ДЛЯ ЦВЕТОВ (верстка)]========================================================================================================================
 function addSetting() {
 	const setting_conteiner = document.querySelector('div.head_nav_item.fl_l.head_nav_btns');
 	const setting_main = document.createElement('div');
@@ -95,6 +85,7 @@ function addSetting() {
 	setting_main.appendChild(set)
 }
 
+// =================================[ПРОВЕРКА НАЖАТИЯ ПО КНОПКАМ]==================================================================================================================
 window.addEventListener('click', function(event) {
 	const save_setting = document.querySelector('.head_nav_item.fl_l.setting_donos');
 	const img_save_setting = document.querySelector('img.setting_donos');
@@ -144,7 +135,7 @@ window.addEventListener('click', function(event) {
 			menu_cont.style.display = 'block';
 		}
 	}
-	else if (event.target.className === 'head_nav_item fl_l setting_donos save_setting active' || event.target.className === 'setting_donos save_setting active'){
+	else if (event.target.className === 'head_nav_item fl_l setting_donos save_setting active' || event.target.className === 'setting_donos save_setting active' || event.target.className != 'setting_donos save_setting active' || event.target.className != 'head_nav_item fl_l setting_donos save_setting active'){
 		if (save_setting.className === 'head_nav_item fl_l setting_donos save_setting active' && img_save_setting.className === 'setting_donos save_setting active'){
 			save_setting.className = 'head_nav_item fl_l setting_donos';
 			img_save_setting.className = 'setting_donos';
@@ -177,8 +168,11 @@ window.addEventListener('click', function(event) {
 	}
 	get_colors();
 
+	// console.log(event.target.classNames)
+
 })
 
+// =================================[ЛОКАЛЬНАЯ БАЗА ЦВЕТОВ]===============================================================================================================================
 function local_save(donos, podnos) {	// Запись в базу цвета
 
 	const const_color = donos.querySelector('.st0').style.fill;
@@ -187,39 +181,7 @@ function local_save(donos, podnos) {	// Запись в базу цвета
 	
 }
 
-window.addEventListener('input', function (event) {	// Настройка цвета
-	if (event.target.id === 'r1'){
-		btn_func_r1();
-	}
-	else if (event.target.id === 'r3'){
-		btn_func_r3();
-	}
-});
-
-function btn_func_r1() {	// Функция отвечающая за настройку цветов
-	var rng=document.getElementById('r1');
-    const div = document.querySelectorAll('.st0');
-
-	div.forEach(function(button) {
-		button.style.fill ='#'+rng.value;
-	});
-    // const const_color = div[0].
-	// localStorage.setItem("colors_donos", const_color);
-
-    // local_save(div[0]);
-}
-
-function btn_func_r3() {	// Функция отвечающая за настройку цветов
-	var rng=document.getElementById('r3');
-    const div = document.querySelectorAll('.st3');
-
-	div.forEach(function(button) {
-		button.style.fill ='#'+rng.value;
-	});
-	// localStorage.setItem("colors_donos", const_color);
-    // local_save(div[0]);
-}
-
+// ================================[ДОБАВЛЕНИЕ ЦВЕТОВ К КНОПКАМ]=========================================================================================================================
 function get_colors() {	// Установка цвета из базы
 	var localValue = localStorage.getItem('colors_donos');	// Переменная, которая берёт из базы цвета
 
@@ -238,23 +200,25 @@ function get_colors() {	// Установка цвета из базы
 	});
 }
 
-/* function save_report(event) {
+// ===============================[*ЛОКАЛЬНАЯ БАЗА РЕЙТИНГА*]======================================================================================================================
+function save_report(event) {
 	var id = event[3].children[1].children[0].dataset.fromId;
 	var name = event[3].querySelector('.author').innerText;
 	var report = event[1].querySelector('.status_report').innerText;
 
 	let rep = [];
-
 	if (id && name && report){
 		rep = [id, name, report]
 	}
 
 	localStorage.setItem(id, rep);
 	a = localStorage.getItem(id).split(',')
-	// console.log(a[0]);
-	// console.log(rep)
+	console.log(a[0]);
+	console.log(rep)
 	// console.log(localStorage.clear(), localStorage.length)
 }
+
+// ===============================[*ДОБАВЛЕНИЕ РЕЙТИНГА НА СТРАНИЦУ*]=====================================================================================================================
 function get_report() {
 	const main = document.querySelectorAll('div.reply_content')
 
@@ -275,17 +239,32 @@ function get_report() {
 		}
 		// else {console.log('В базе пусто')}
 	}
-} */
+}
+
+// ===============================[УДАЛЕНИЕ ВСЕХ СОЗДАННЫХ КНОПОК]=====================================================================================================================
+function delbuttons_test() {
+	var delbut = document.querySelectorAll('div.reply_footer.clear_fix');
+	const test_1 = document.querySelector('.reply_link_wrap.cremleBot')
+	if (test_1 != null){
+		delbut.forEach(function(elements) {
+			if (elements.querySelector('.emoji_conteiner') != undefined){
+				elements.querySelector('.emoji_conteiner').remove();
+			}
+			elements.querySelector('.reply_link_wrap').className = 'reply_link_wrap';
+		})
+	}
+}
 
 window.setTimeout(function () {
 	addButtons();
 	addSetting();
 }, 300)
 
+// ====================================[ОБНОВЛЕНИЕ КНОПОК]=======================================================================================================
 setInterval(function(){ 
-    //console.log('Прошло 5 секунд и я сейчас обновлюсь');
-    addButtons();
-    //console.log('Обновление прошло')
-}, 2000);
+    delbuttons_test();
+    // setTimeout(() => {  addButtons(); }, 1000);
+	addButtons()
+}, 5000);
 
-setInterval(() => getData(), 5000)
+// строка для теста батника
