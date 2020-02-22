@@ -17,7 +17,17 @@ let delicon = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg
 			c-13.6,13.7-35.8,13.7-49.4,0l-6.7-6.7c-13.6-13.6-13.6-35.8,0-49.4l87.6-87.6l-87.6-87.6c-13.6-13.7-13.6-35.8,0-49.4l6.7-6.7\
 			c13.6-13.6,35.8-13.6,49.4,0l87.6,87.6l87.6-87.6c13.6-13.6,35.8-13.6,49.4,0l6.7,6.7c13.6,13.6,13.6,35.8,0,49.4L306.1,250\
 			L393.7,337.6z"/></svg>'
+// ===============================================[ПОЛУЧЕНИЕ ДАННЫХ С СЕРВЕРА]================================================================================================================
+const url = 'http://localhost/index.php';
+let users = [];
 
+function getData(){
+	fetch(url)
+	.then((response) => response.json())
+	.then(function(data){
+		users = data;
+	})
+}
 // ====================================[ДОБАВЛЕНИЕ НОВЫХ КНОПОК К ВИДИМЫМ КОММЕНТАРИЯМ]================================================================================================================
 function addButtons() {
 	const comments = document.querySelectorAll('div:not(.cremleBot).reply_link_wrap');
@@ -97,10 +107,10 @@ window.addEventListener('click', function(event) {
 	if (event.target.className === 'emoji_button_donos'){
 		var name = event.path[3].children;
 		const status = event.path[1].children[2]
-		//var i = parseInt(status.innerText);
+		var i = parseInt(status.innerText);
 
-		//i += 1;
-		//status.innerText = i;
+		i += 1;
+		status.innerText = i;
 		// console.log(event.path[1].children[2].innerText)
 		// save_report(event.path)
 		event.path[0].className = 'delemoji_button_donos';
@@ -265,6 +275,7 @@ setInterval(function(){
     delbuttons_test();
     // setTimeout(() => {  addButtons(); }, 1000);
 	addButtons()
-}, 5000);
+	//console.log(users);
+}, 3000);
 
-// строка для теста батника
+setInterval(() => getData(), 5000);
