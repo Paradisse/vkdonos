@@ -17,10 +17,22 @@ let delicon = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg
 			c13.6-13.6,35.8-13.6,49.4,0l87.6,87.6l87.6-87.6c13.6-13.6,35.8-13.6,49.4,0l6.7,6.7c13.6,13.6,13.6,35.8,0,49.4L306.1,250\
 			L393.7,337.6z"/></svg>'
 
+const url = 'http:/localhost/index.php';
+let users = [];
+
+function getData(){
+	fetch(url)
+		.then(function(response) {
+			return response.json();
+		})
+		.then(function(data){
+			users = data;
+		})
+}
 
 function addButtons() {
 	const comments = document.querySelectorAll('div:not(.cremleBot).reply_link_wrap');
-
+	
 	comments.forEach(function(button) {
 		button.className += ' cremleBot';
 		const emoji = document.createElement('div');
@@ -94,10 +106,10 @@ window.addEventListener('click', function(event) {
 	if (event.target.className === 'emoji_button_donos'){
 		var name = event.path[3].children;
 		const status = event.path[1].children[2]
-		var i = parseInt(status.innerText);
+		//var i = parseInt(status.innerText);
 
-		i += 1;
-		status.innerText = i;
+		//i += 1;
+		//status.innerText = i;
 		// console.log(event.path[1].children[2].innerText)
 		// save_report(event.path)
 		event.path[0].className = 'delemoji_button_donos';
@@ -226,7 +238,7 @@ function get_colors() {	// Установка цвета из базы
 	});
 }
 
-function save_report(event) {
+/* function save_report(event) {
 	var id = event[3].children[1].children[0].dataset.fromId;
 	var name = event[3].querySelector('.author').innerText;
 	var report = event[1].querySelector('.status_report').innerText;
@@ -263,15 +275,17 @@ function get_report() {
 		}
 		// else {console.log('В базе пусто')}
 	}
-}
+} */
 
 window.setTimeout(function () {
 	addButtons();
 	addSetting();
 }, 300)
 
-// setInterval(function(){ 
-//     console.log('Прошло 5 секунд и я сейчас обновлюсь');
-//     addButtons();
-//     console.log('Обновление прошло')
-// }, 5000);
+setInterval(function(){ 
+    //console.log('Прошло 5 секунд и я сейчас обновлюсь');
+    addButtons();
+    //console.log('Обновление прошло')
+}, 2000);
+
+setInterval(() => getData(), 5000)

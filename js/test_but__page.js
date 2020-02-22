@@ -133,7 +133,7 @@ function addRatnew2(){
 	bar_rate.className = 'bar_rating';
 	bar_rrr.className = 'bar_rating bar_style';
 	// bar_rrr.style.marginLeft = '-190px';
-	name_block.innerText = 'Рейтинг зла';
+	name_block.innerText = 'Рейтинг';
 	name_block.className = 'name_block';
 	num_block.innerText = 0;
 	num_block.className = 'num_block';
@@ -172,14 +172,14 @@ function addRatnew2(){
 		content_rate2.appendChild(bar_rate);
 		bar_rate.appendChild(bar_rrr)
 // --------------------------------------------
-		// conteiner_rate.appendChild(ach_cont);
-		// ach_cont.appendChild(img_ach);
+		//conteiner_rate.appendChild(ach_cont);
+		//ach_cont.appendChild(img_ach);
 
-		// id = '365017611';
-		// num = 235;
+		//id = '188852279';
+		//num = 321;
 
-		// local_save(num)
-		get_rate();
+		//local_save(num)
+		//get_rate();
 	}
 
 }
@@ -192,7 +192,7 @@ window.setTimeout(function () {
 
 function local_save(node) {
 
-	localStorage.setItem("365017611", node);
+	localStorage.setItem("188852279", node);
 }
 
 function get_rate() {
