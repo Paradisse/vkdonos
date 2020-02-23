@@ -1,0 +1,25 @@
+{
+  "name": "dono$",
+  "description": "Расширение содержащие в себе базу жалоб пользователей вк",
+  "version": "1.0",
+  "homepage_url": "https://github.com/Paradisse/vkdonos",
+  "manifest_version": 2,
+  "permissions": [
+    "storage",
+    "activeTab",
+    "https://vk.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://vk.com/*"],
+      "js": [
+        "js/setting_colors.js"
+      ],
+      "css": [
+        "css/styles.css",
+        "css/test.css"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
