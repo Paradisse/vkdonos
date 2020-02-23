@@ -18,20 +18,6 @@ let delicon = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg
 			c13.6-13.6,35.8-13.6,49.4,0l87.6,87.6l87.6-87.6c13.6-13.6,35.8-13.6,49.4,0l6.7,6.7c13.6,13.6,13.6,35.8,0,49.4L306.1,250\
 			L393.7,337.6z"/></svg>'
 // ===============================================[ОБЩЕНИЕ С БАЗОЙ ДАННЫХ]================================================================================================================
-const url = 'http://localhost/index.php';
-let users = [];
-
-function getData(){
-	try{
-		fetch(url)
-			.then(response => response.json())
-			.then(function(data){
-				users = data;
-			});
-	}catch(e){
-		console.log(e);
-	}
-}
 
 function updateDB(data) {
 	try{
@@ -63,7 +49,7 @@ function addButtons() {
 			emoji.className = 'emoji_button_donos';
 			but_maket.className = 'emoji_button_donos';
 			but_maket.style.opacity = '0';
-			but_maket.title = 'Внести в базу бяк этого юзера'
+			but_maket.title = 'Донести'
 
 			const status = document.createElement('div');
 
@@ -136,12 +122,12 @@ window.addEventListener('click', function(event) {
 		var id = event.path[3].children[1].firstElementChild.dataset.fromId;
 		var click_button = event.target.className;
 		let bd = [id, click_button];
-		//this.console.log(bd);
+		this.console.log(bd);
 
 		updateDB(bd);
 
 		event.path[1].firstChild.innerHTML = delicon
-		event.path[0].title = 'Убрать юзера из базы бяк'
+		event.path[0].title = 'Удалить донос'
 
 	}
 	else if (event.target.className === 'delemoji_button_donos'){
@@ -160,12 +146,12 @@ window.addEventListener('click', function(event) {
 		var id = event.path[3].children[1].firstElementChild.dataset.fromId;
 		var click_button = event.target.className;
 		let bd = [id, click_button];
-		//this.console.log(bd);
+		this.console.log(bd);
 
 		updateDB(bd);
 		
 		event.path[1].firstChild.innerHTML = icon
-		event.path[0].title = 'Внести в базу бяк этого юзера'
+		event.path[0].title = 'Донести'
 	}
 	else if (event.target.className === 'head_nav_item fl_l setting_donos' || event.target.className === 'setting_donos'){
 		if (save_setting.className === 'head_nav_item fl_l setting_donos' && img_save_setting.className === 'setting_donos'){
@@ -302,12 +288,8 @@ window.setTimeout(function () {
 
 // ====================================[ОБНОВЛЕНИЕ КНОПОК]=======================================================================================================
 setInterval(function(){ 
-    delbuttons_test();
+    //delbuttons_test();
     // setTimeout(() => {  addButtons(); }, 1000);
 	addButtons()
 	//console.log(users);
 }, 3000);
-
-setInterval(function () {
-	getData();
-}, 5000);
