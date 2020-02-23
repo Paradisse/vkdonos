@@ -56,7 +56,7 @@ function addButtons() {
 			btn.innerHTML = icon;
 		}); 
 		get_colors(); // добавление кастомизации(цвет) к кнопка
-		// get_report(); // добавление рейтинга
+		get_report(); // добавление рейтинга
 		// console.log('Добавлено',comments.length,'новых кнопок')
 	}
 }
@@ -206,15 +206,15 @@ function save_report(event) {
 	var name = event[3].querySelector('.author').innerText;
 	var report = event[1].querySelector('.status_report').innerText;
 
-	let rep = [];
-	if (id && name && report){
-		rep = [id, name, report]
-	}
+	// let rep = [42342399];
+	// if (id && name && report){
+	// 	rep = [your_id()]
+	// }
 
-	localStorage.setItem(id, rep);
-	a = localStorage.getItem(id).split(',')
-	console.log(a[0]);
-	console.log(rep)
+	localStorage.setItem(id, your_id());	
+	a = localStorage.getItem(id)
+	// console.log(a[0]);
+	console.log(a)
 	// console.log(localStorage.clear(), localStorage.length)
 }
 
@@ -229,8 +229,7 @@ function get_report() {
 
 		if (localValue != null){
 			user_id = localValue.split(',')[0];
-			user_name = localValue.split(',')[1];
-			score = localValue.split(',')[2];
+			score = localValue.length;
 			if (id === user_id){
 				const pack = main[i].children[3].children[3].lastElementChild
 				pack.innerText = score;
@@ -255,16 +254,20 @@ function delbuttons_test() {
 	}
 }
 
+function your_id() {
+	var id = document.querySelectorAll('script')
+	id = id[id.length-1].innerHTML.split('handlePageParams')[2].split(':')[1].split(',')[0]
+	id = parseInt(id)
+	return id
+}
+
 window.setTimeout(function () {
 	addButtons();
 	addSetting();
 }, 300)
 
 // ====================================[ОБНОВЛЕНИЕ КНОПОК]=======================================================================================================
-setInterval(function(){ 
-    delbuttons_test();
-    // setTimeout(() => {  addButtons(); }, 1000);
-	addButtons()
-}, 5000);
-
-// строка для теста батника
+// setInterval(function(){ 
+//     delbuttons_test();
+// 	addButtons()
+// }, 5000);

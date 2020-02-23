@@ -88,7 +88,7 @@ function get_rate() {
 		var localValue = localStorage.getItem(a[0])
 	    var div = document.querySelector('.num_block');
 	    if (localValue){
-			div.innerText=localValue;
+			div.innerText=localValue.length;
 	    }
 	    else if (localValue === null){
 			div.innerText=0;
