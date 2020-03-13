@@ -14,18 +14,17 @@ function addSetting() {
 			<ul>\
 				<b><li>Настройки</li></b>\
 				<li>Цвет</li>\
-			</ul><div class="menu_cont"><div class="content_menu"><div class="color_block__"></div><div class="color_block__ close"></div><div class="color_block__ close"></div>\
+			</ul><div class="menu_cont"><div class="content_menu"><div class="color_block__"></div><div class="color_block__ close"></div><div class="color_block__ close"></div></div>\
 			<div class="save_button_donos"><a class="button_save">Сохранить</a></div>\
-			</div></div>'); 
+		</div>'); 
 	const set = document.querySelector('.setting');
 	setting_main.appendChild(set)
 
 
 	const blocks = document.querySelectorAll('.color_block__');
-	var rgb = 124;
 	blocks.forEach(function(block) {
-		block.style.backgroundColor = '#'+rgb;
-		rgb += 43;
+		var rgb = Math.random() * 255;
+		block.style.backgroundColor = 'rgb('+rrandom(0, 255)+','+rrandom(0, 255)+','+rrandom(0, 255)+')';
 	})
 }
 
@@ -73,7 +72,7 @@ function close_block() {
 	body.insertAdjacentHTML('afterBegin',	
 	'<div class="conteiner_close">\
 		<div class="close_block">\
-			<div class="block">\
+			<div class="cblock">\
 				<h3>Данный цвет не доступен</h3>\
 				<div class="block_but">Закрыть</div>\
 			</div>\
@@ -83,3 +82,8 @@ function close_block() {
 }
 				// <img src="https://i.imgur.com/RANRcNc.png"/>\
 addSetting()
+
+
+function rrandom(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}

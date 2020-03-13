@@ -13,11 +13,14 @@
     {
       "matches": ["https://vk.com/*"],
       "js": [
-        "js/setting_colors.js"
+        "js/main.js",
+        "js/rating.js",
+        "js/black.js"
       ],
       "css": [
         "css/styles.css",
-        "css/test.css"
+        "css/test.css",
+        "css/black.css"
       ],
       "run_at": "document_end"
     }

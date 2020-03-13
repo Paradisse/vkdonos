@@ -25,7 +25,7 @@ img.setting_donos{
     width: 45px;
 }
 .setting{
-    width: 150px;
+    width: 160px;
     height: auto;
     background: #fff;
     float: left;
@@ -113,6 +113,8 @@ a.button_save:hover{
 
 .content_menu {
     text-align: center;
+    width: 60%;
+    margin-left: 20%;
 }
 
 .color_block__ {
@@ -157,14 +159,14 @@ a.button_save:hover{
     background-repeat: no-repeat;
     background-position: center;
 }
-.block{
+.cblock{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.block>h3 {
+.cblock>h3 {
     margin-top: 35px;
 }
 .block_but{
