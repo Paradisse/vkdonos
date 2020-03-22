@@ -7,7 +7,7 @@ window.setTimeout(function () {
 function main() {
 	
 	const body_bg = document.getElementsByTagName('body');
-	const back_bg = document.querySelectorAll('.back');
+	// const back_bg = document.querySelectorAll('.back');
 	const border_dialog = document.querySelectorAll('.page_block');
 
 	const my_styles = document.createElement('style');
@@ -15,8 +15,8 @@ function main() {
 	body_bg[0].appendChild(my_styles);
 
 	// body_bg[0].style.background = bgg;
-	back_bg[1].style.background = one_bg;
-	back_bg[1].style.borderBottom = one_bg;
+	// back_bg[1].style.background = one_bg;
+	// back_bg[1].style.borderBottom = one_bg;
 	// border_dialog.forEach(function(element){
 	// 	element.style.boxShadow = '1px 0px 1px 0 #d7d8db';		
 	// });
@@ -27,6 +27,7 @@ function main() {
 
 	my_styles.innerHTML = 
 	'body{background: var(--bgg)}\
+	#page_header_cont .back{background: var(--one_bg); border-color:var(--one_bg)}\
 	/*dialog*/\
 	#side_bar ol li .left_row:hover, .dev_top_link.sel, .dev_top_link.sel:hover, .dev_home_link:hover, .dev_top_link:hover, .top_nav_link.active, .top_nav_link:hover, .top_nav_btn.active, .top_nav_btn:hover, .top_audio_player.active, .top_audio_player:hover, .dev_top_input, .im-page .im-page--center-empty{background: none;}\
 	#side_bar ol li .left_row, a.im-page--dialogs-filter, a._im_start_new, .im-mess-stack .im-mess-stack--content .im-mess-stack--pname>a, a.im-page--title-main-inner._im_page_peer_name{color: var(--text)}\
@@ -46,7 +47,6 @@ function main() {
 	\
 	.im-chat-input .im-chat-input--txt-wrap, .fakeinput, div[contenteditable=true], input.big_text, input.dark, input.search, input.text, textarea{background-color: var(--bg); border: 1px solid var(--main_bg); color: var(--white_text);}\
 	\
-	/*.nim-peer .nim-peer--photo-w{border-radius: 0;}*/\
 	.nim-dialog:not(.nim-dialog_deleted).nim-dialog_hovered, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_unread.nim-dialog_classic, .nim-dialog:not(.nim-dialog_deleted):hover{background-color: var(--bg);}\
 	.im_fwd_log_wrap, .im_wall_log_wrap{border-left: 2px solid var(--main_bg);}\
 	\
@@ -82,6 +82,8 @@ function main() {
 	.pv_author_block{border-color: var(--main_bg); background-color: var(--bg)}\
 	.im-replied--text{color: var(--white_text)}\
 	#side_bar .more_div{border-color: var(--main_bg)}\
+	.nim-dialog .nim-dialog--photo, .online.mobile:after, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_muted.nim-dialog_selected .nim-dialog--photo .online.mobile:after, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_selected .nim-dialog--photo .online.mobile:after, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_hovered .nim-dialog--photo .online.mobile:after, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_unread.nim-dialog_classic .nim-dialog--photo .online.mobile:after, .nim-dialog:not(.nim-dialog_deleted):hover .nim-dialog--photo .online.mobile:after, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_muted.nim-dialog_selected .nim-dialog--photo, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_selected .nim-dialog--photo{border-radius: 0}\
+	.nim-dialog.nim-dialog_failed.nim-dialog_muted .nim-dialog--unread, .nim-dialog.nim-dialog_unread.nim-dialog_muted .nim-dialog--unread, .nim-dialog.nim-dialog_unread.nim-dialog_prep-injected.nim-dialog_muted .nim-dialog--unread{background: var(--text)}\
 	\
 	/*classic_dialog*/\
 	.im-page_classic.im-page .im-page--dialogs, .im-page_classic.im-page .im-page--dcontent, .im-page--chat-header{background: var(--bg)}\
@@ -99,11 +101,11 @@ function main() {
 	\
 	/*feed*/\
 	.ui_rmenu_item, .ui_rmenu_subitem{color: var(--text);}\
-	body, a, .feed_update_row .post_author, .right_list_header, .feed_updates .explain, .ui_rmenu_item_sel, .ui_rmenu_item_sel:hover, .eltt .eltt_fancy_action, .reply_submit_hint_opts .radiobtn, .apps_feedRightAppsBlock.apps_feedRightAppsBlock_single_app .apps_feedRightAppsBlock__desc, .poster-uploader__title, .ui_rmenu_subitem.ui_rmenu_item_sel, .ui_rmenu_subitem.ui_rmenu_item_sel:hover, .module_header .header_top, .post_upload_dropbox, .wall_tt{color: var(--white_text);}\
+	body, a, .feed_update_row .post_author, .right_list_header, .feed_updates .explain, .ui_rmenu_item_sel, .ui_rmenu_item_sel:hover, .eltt .eltt_fancy_action, .reply_submit_hint_opts .radiobtn, .apps_feedRightAppsBlock.apps_feedRightAppsBlock_single_app .apps_feedRightAppsBlock__desc, .poster-uploader__title, .ui_rmenu_subitem.ui_rmenu_item_sel, .ui_rmenu_subitem.ui_rmenu_item_sel:hover, .module_header .header_top, .post_upload_dropbox, .wall_tt, .tt_w{color: var(--white_text);}\
 	.ui_rmenu_sep, .feed_updates .wall_module .feed_row .post, .poster__open-btn-wrapper, #ads_left.ads_left_empty+.left_menu_nav_wrap, .deep_active .replies .reply_fakebox, .deep_active.wall_module .replies .reply_fakebox, .deep_active.wall_module .wl_replies_block_wrap .reply_fakebox, .deep_active .wl_replies_block_wrap .reply_fakebox, .deep_active .replies .reply_box div.submit_post_field, .deep_active .replies .reply_box div.submit_post_field[contenteditable=true], .deep_active .replies .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active .replies .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .replies .reply_box div.submit_post_field, .deep_active.wall_module .replies .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .replies .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active.wall_module .replies .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .wl_replies_block_wrap .reply_box div.submit_post_field, .deep_active.wall_module .wl_replies_block_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active.wall_module .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active .wl_replies_block_wrap .reply_box div.submit_post_field, .deep_active .wl_replies_block_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active .replies .reply .reply_wrap, .deep_active.wall_module .replies .reply .reply_wrap, .deep_active.wall_module .wl_replies_block_wrap .reply .reply_wrap, .deep_active .wl_replies_block_wrap .reply .reply_wrap, .deep_active .replies .replies_wrap_deep, .deep_active.wall_module .replies .replies_wrap_deep, .deep_active.wall_module .wl_replies_block_wrap .replies_wrap_deep, .deep_active .wl_replies_block_wrap .replies_wrap_deep, #submit_post_box:not(.shown):not(.own_field) .poster__open-btn-wrapper, .olist_item_wrap:hover, .olist_topsh .olist_filter_wrap, .poster__toolbar-wrapper, .post_upload_dropbox_inner, .wall_module .replies_list{border-color: var(--main_bg)}\
 	.ui_rmenu_item:hover, .ui_rmenu_subitem:hover, .ui_rmenu_item_sel, .ui_rmenu_item_sel:hover{background: none;}\
 	.top_notify_countб .top_nav_btn:hover .top_notify_count, .post_suggest, .submit_post, .post_actions_btns, .deep_active .post_replies_header, .deep_active.wall_module .post_replies_header{border-color: var(--bgg)}\
-	.stl_active.over_fast #stl_bg, .submit_post, .wall_module .reply_box, .wall_module .reply_fakebox_wrap, .deep_active .replies .reply_fakebox, .deep_active.wall_module .replies .reply_fakebox, .deep_active.wall_module .wl_replies_block_wrap .reply_fakebox, .deep_active .wl_replies_block_wrap .reply_fakebox, .wall_module .reply_form, .deep_active .replies .reply_field_wrap .reply_field, .deep_active .replies .wl_reply_form_wrap .reply_field_wrap .reply_field, .deep_active.wall_module .replies .reply_field_wrap .reply_field, .deep_active.wall_module .replies .wl_reply_form_wrap .reply_field_wrap .reply_field, .deep_active.wall_module .wl_replies_block_wrap .reply_field_wrap .reply_field, .deep_active.wall_module .wl_replies_block_wrap .wl_reply_form_wrap .reply_field_wrap .reply_field, .deep_active .wl_replies_block_wrap .reply_field_wrap .reply_field, .deep_active .wl_replies_block_wrap .wl_reply_form_wrap .reply_field_wrap .reply_field, .poster__toolbar, .poster__slider-arrow:hover, .post_upload_dropbox.dropbox_over .post_upload_dropbox_inner{background-color: var(--bg)}\
+	.stl_active.over_fast #stl_bg, .submit_post, .wall_module .reply_box, .wall_module .reply_fakebox_wrap, .deep_active .replies .reply_fakebox, .deep_active.wall_module .replies .reply_fakebox, .deep_active.wall_module .wl_replies_block_wrap .reply_fakebox, .deep_active .wl_replies_block_wrap .reply_fakebox, .wall_module .reply_form, .deep_active .replies .reply_field_wrap .reply_field, .deep_active .replies .wl_reply_form_wrap .reply_field_wrap .reply_field, .deep_active.wall_module .replies .reply_field_wrap .reply_field, .deep_active.wall_module .replies .wl_reply_form_wrap .reply_field_wrap .reply_field, .deep_active.wall_module .wl_replies_block_wrap .reply_field_wrap .reply_field, .deep_active.wall_module .wl_replies_block_wrap .wl_reply_form_wrap .reply_field_wrap .reply_field, .deep_active .wl_replies_block_wrap .reply_field_wrap .reply_field, .deep_active .wl_replies_block_wrap .wl_reply_form_wrap .reply_field_wrap .reply_field, .poster__toolbar, .poster__slider-arrow:hover, .post_upload_dropbox.dropbox_over .post_upload_dropbox_inner, .search_filters_minimized_text{background-color: var(--bg)}\
 	#stl_text, .post_suggest .post_suggest__action_text, .wall_module a.wall_reply_greeting, .deep_active .post_replies_header .post_replies_reorder, .deep_active.wall_module .post_replies_header .post_replies_reorder, .reply_submit_hint_title, .feed_new_posts, .ui_tabs_box .ui_tab_sel .ui_tab_count, .Post__copyrightButton, .poster__new-bkg-btn-layout, .wall_module .replies_open, .wall_module .wr_header, .wall_module .media_desc .a{color: var(--text)}\
 	.post_suggest:after, .post_suggest:before, .like_cont, .poster__settings-btn-wrapper{border: none}\
 	.deep_active .replies .replies_wrap_deep .replies_deep_collapse:before, .deep_active.wall_module .replies .replies_wrap_deep .replies_deep_collapse:before, .deep_active.wall_module .wl_replies_block_wrap .replies_wrap_deep .replies_deep_collapse:before, .deep_active .wl_replies_block_wrap .replies_wrap_deep .replies_deep_collapse:before, .eltt .eltt_fancy_action:hover, .feed_new_posts:hover, .olist_item_wrap:hover, .poster__slider-arrow, .Post__copyrightButton:hover, .poster-uploader__drop-box:hover, .poster__change-bkg-btn, .ui_toggler.on, .post_upload_dropboxs, .wall_module .replies_open, .wall_module .wr_header{background-color: var(--main_bg)}\
@@ -111,8 +113,8 @@ function main() {
 	.apps_feedRightAppsBlock__name{color: var(--mark)}\
 	.post_top_info_wall_event, .post_top_info_wall_group, .post_top_info_wall_guide, .post_top_info_wall_mention, .post_top_info_wall_podcast, .post_top_info_wall_poll_vote, .post_top_info_wall_reply, .post_top_info_wall_vkgo, .poster__slider-arrow._right, .poster__slider-arrow._left{box-shadow: var(--main_bg)}\
 	.Post__copyrightButton{position: inherit}\
-	.wall_tt .like_tt_bottom{background-color: var(--bgg)}\
-	.wall_tt .like_tt_bottom{border-color: var(--bg)}\
+	.wall_tt .like_tt_bottom, .top_notify_count, .top_notify_count:hover, .mention_tt_actions, .wall_module .like_tt_bottom_page_friend_reply, .wall_tt .like_tt_bottom{background-color: var(--bgg)}\
+	.wall_tt .like_tt_bottom, .mention_tt_actions, .wall_tt .like_tt_bottom, .wall_module .page_friend_reply{border-color: var(--bg)}\
 	\
 	/*minidialog*/\
 	.fc_tab_head{background-color: #000; border: 1px solid var(--one_bg)}\
@@ -164,13 +166,15 @@ function main() {
 	\
 	/*calendar*/\
 	.cal_table .month, .cal_table .month_arr{background-color: var(--bg)}\
-	.cal_table .daysofweek{background-color: var(--main_bg)}\
+	.cal_table .daysofweek, .bd_day_head, .bd_day_cell, .bd_day_cell.left, .bd_day_head, .bd_arrow{background-color: var(bg)}\
 	.cal_table .next_month_day, .cal_table .prev_month_day, .cal_table .day{background-color: var(--main_bg); color: var(--white_text)}\
 	.cal_clear{background: var(--bg); border-color: var(--bg)}\
 	.im_cal_clear_lnk{color: var(--text)}\
 	.cal_table .day.sel, .cal_table .day.sel:hover{background-color: var(--text)}\
-	.cal_table .day:hover:not(.inactive_day){background-color: var(--bg)}\
+	.cal_table .day:hover:not(.inactive_day), .bd_day_cell.holiday, .bd_day_cell.holiday.today, .bd_day_cell.today{background-color: var(--bg)}\
 	.cal_table>tbody, .cal_table>thead{border: none; background-color: none}\
+	.bd_header_info{color: var(--white_text)}\
+	.bd_day_cell, .bd_day_cell.left, .bd_day_head, .bd_day_cell.holiday.today .bd_day_events, .bd_day_cell.today .bd_day_events{border-color: var(--main_bg)}\
 	\
 	/*info_group*/\
 	.PopupHeader{background: var(--bgg)}\
@@ -224,7 +228,7 @@ function main() {
 	.docs_item, .docs_choose_rows .docs_item, .ui_search.ui_search_fixedborder-color: var(--main_bg)}\
 	\
 	/*surprise*/\
-	.gifts_box_header{background: var(--bg)}\
+	.gifts_box_header{background-color: var(--bg)}\
 	a b, b a{color: var(--text)}\
 	.gifts_section_row, div.wdd.wdd_focused, .wdd_list{border-color: var(--main_bg)}\
 	.box_title .back:hover{background-color: var(--main_bg)}\
@@ -260,12 +264,12 @@ function main() {
 	.result_list ul li.active{background: var(--bg); color: var(--white_text)}\
 	\
 	/*qr-code возможно не нужно его красить*/\
-	rect#rect-0, path#empty-0, path#b-0, path#r-0, path#l-0, path#t-0, path#lt-0, path#lb-0, path#rb-0, path#rt-0, path#n_lt-0, path#n_lb-0, path#n_rt-0, path#n_rb-0, path#point-0{fill: var(--white)}\
+	rect#rect-0, path#empty-0, path#b-0, path#r-0, path#l-0, path#t-0, path#lt-0, path#lb-0, path#rb-0, path#rt-0, path#n_lt-0, path#n_lb-0, path#n_rt-0, path#n_rb-0, path#point-0{fill: var(--white_text)}\
 	\
 	/*Уведомления*/\
-	.feedback_row, .feedback_sticky_row, .top_notify_cont .top_notify_header, #top_notify_wrap, .top_notify_show_all, .flist_item_wrap, .flist_item_wrap:hover{border-color: var(--main_bg)}\
+	.feedback_row, .feedback_sticky_row, .top_notify_cont .top_notify_header, #top_notify_wrap, .top_notify_show_all, .flist_item_wrap, .flist_item_wrap:hover, .page_block #all_shown, .feedback_row_clickable:not(.feedback_row_touched):hover, .feed_row~.feed_row .feedback_row_clickable:not(.feedback_row_touched):hover{border-color: var(--main_bg)}\
 	.feedback_row_wrap.unread:not(.feedback_row_touched), .top_notify_cont .top_notify_header, #top_notify_wrap, .top_notify_show_all{background-color: var(--bg)}\
-	.top_notify_cont .feedback_header, .feedback_header b, .top_notify_cont .top_notify_header, .top_notify_header{color: var(--white_text)}\
+	.top_notify_cont .feedback_header, .feedback_header b, .top_notify_cont .top_notify_header, .top_notify_header, .feedback_header{color: var(--white_text)}\
 	.feedback_header .author, .feedback_header .group_link, .feedback_header .mem_link{color: var(--text)}\
 	.top_notify_show_all:hover, .notify_sources_tt_content .content:not(:hover) .line_cell.selected, .notify_sources_tt_content .line_cell:hover, .top_notify_cont .feedback_row:not(.dld).hover, .top_notify_cont .feedback_row:not(.dld):hover, .feedback_row_clickable:not(.feedback_row_touched):hover, .flist_item_wrap:hover{background-color: var(--main_bg)}\
 	.ui_scroll_default_theme>.ui_scroll_bar_container>.ui_scroll_bar_outer>.ui_scroll_bar_inner{background: var(--white_text)}\
@@ -275,14 +279,43 @@ function main() {
 	.article_ed_layer .article_ed_layer__header .article_ed_layer__publish{color: var(--text)}\
 	.article_ed_layer .article_ed_layer__list_item .article_ed_layer__list_item_title{color: var(--white_text)}\
 	.article_ed_layer .article_ed_layer__publish_settings .article_ed_layer__publish_settings_header{border-color: var(--main_bg)}\
-	.article_ed_layer .article_ed_layer__list_item:not(.article_ed_layer__list_item--selected):hover, .article_ed_layer .article_ed_layer__list_item.article_ed_layer__list_item--selected{background-color: var(--main_bg)}\
+	.article_ed_layer .article_ed_layer__list_item:not(.article_ed_layer__list_item--selected):hover, .article_ed_layer .article_ed_layer__list_item.article_ed_layer__list_item--selected, .page_actions_item:hover:not(.grey_hoverable), .top_profile_mrow:hover{background-color: var(--main_bg)}\
 	\
 	/*Your profile*/\
-	.page_name, h1.page_name, .profile_warning_row, .page_actions_cont.narrow .page_actions_header_inner{color: var(--white_text)}\
-	.current_audio, .page_counter .count, .wk_wall_archive__month_menu, .wk_wall_archive__tabs_menu, .wall_copy_more, .wall_post_attaches_more, .wall_post_more, .wall_reply_more, .page_actions_item{color: var(--text)}\
-	.wide_column .page_top, .counts_module, .module, .wk_wall_archive__tabs .ui_tabs, .profile_info_block, .page_status_editor .editor, .page_actions_wrap, .page_actions_inner{border-color: var(--main_bg)}\
+	.page_name, h1.page_name, .profile_warning_row, .page_actions_cont.narrow .page_actions_header_inner, .box_grey .box_title .divider:before, .box_grey .box_title .tab_link, .box_grey .box_title .toggle, .box_grey .box_title .toggle a{color: var(--white_text)}\
+	.current_audio, .page_counter .count, .wk_wall_archive__month_menu, .wk_wall_archive__tabs_menu, .wall_copy_more, .wall_post_attaches_more, .wall_post_more, .wall_reply_more, .page_actions_item, .page_counter:hover .label{color: var(--text)}\
+	.wide_column .page_top, .counts_module, .module, .wk_wall_archive__tabs .ui_tabs, .profile_info_block, .page_status_editor .editor, .page_actions_wrap, .page_actions_inner, .preq_tt, .page_actions_separator, .wall_module .copy_quote, .wall_module .reply~.reply .dld, .wall_module .reply~.reply .reply_wrap, .gifts_box_rows .post{border-color: var(--main_bg)}\
 	.my_current_info:hover, .no_current_info:hover, .profile_more_info_link:hover{background-color: var(--main_bg)}\
-	.wk_wall_archive__tabs, .profile_info_edit, .profile_info_header, .page_status_editor .editor, .page_actions_wrap, .page_actions_header{background-color: var(--bg)}\
+	.wk_wall_archive__tabs, .profile_info_edit, .profile_info_header, .page_status_editor .editor, .page_actions_wrap, .page_actions_header, .preq_wrap, .pv_white_bg, #groups_menu_items .groups_edit_menu_items .groups_edit_menu_item .groups_edit_menu_item_line{background-color: var(--bg)}\
+	\
+	/*Your group*/\
+	.ui_tab_default .ui_tab_plain, .gtop_complex_message .gtop_content .gtop_header, .page_market_item_title, .gtop_complex_message .gtop_content .gtop_message, .public_help_block, input#group_edit_addr, #groups_menu_promo .apps_group_catalog_promo_header, .groups_edit_chats .groups_chats_promo .apps_group_catalog_promo_header, #groups_apps_catalog_promo .apps_group_catalog_promo_header, .apps_group_catalog_header .apps_group_catalog_header_desc .apps_group_catalog_header_desc_text, .ui_tooltipMenu__link, ul.listing li span, .groups_cover_box .groups_edit_cover_header .groups_edit_cover_header_title, .groups_cover_box .groups_edit_cover_wrap .groups_edit_cover_wrap_desc, .stats_cont_browse_tile, #stats_cont h4, .stats_head{color: var(--white_text)}\
+	.group_friends_image, .group_u_photo.online:after{border-color: var(--bg)}\
+	.bt_header, .bp_post, #gtop_first_post_to_wall, .prefix_input_border, .prefix_input:focus+.prefix_input_border, .group_edit_row_sep, .groups_api_divider, .gedit_block_footer, .group_l_row:last-child, .group_l_row, .apps_group_catalog_header, .apps_group_catalog_rows .apps_catalog_row, .community_apps_catalog_type_tabs.ui_tabs_header, .groups_edit_event_log_page .groups_edit_event_log_controls, .groups_edit_event_log_page .groups_edit_event_log_items_wrap, .groups_edit_event_log_page .groups_edit_event_log_items_wrap .groups_edit_event_log_item_wrap, .groups_cover_box .groups_edit_cover_header, .stats_browse_filter, #stats_cont h4, .stats_head, .piechart_table tr td, .stats_community_messages_info{border-color: var(--main_bg)}\
+	.blst_title, .blst_mem, .group_info_rows_redesign .group_info_row.onboarding_placeholder .line_value .line_div_value.empty, .page_actions_dd_label, .page_actions_header_inner, .group_edit_labeled .idd_wrap .idd_selected_value, a.group_l_title, a.group_u_title, .wk_header, .group_settings_advice a, .groups_edit_event_log_page .groups_edit_event_log_controls, .groups_edit_event_log_page .groups_edit_event_log_filter .ui_tooltipMenu__current, .ui_ownblock_label{color: var(--text)}\
+	.blst_last:hover, .group_info_rows_redesign .group_info_row.onboarding_placeholder .line_value.line_edit, .group_info_rows_redesign .group_info_row.onboarding_placeholder .line_value:hover, .group_api_url_desc, .ui_tooltipMenu__link:hover, .groups_edit_event_log_page .groups_edit_event_log_items_wrap .groups_edit_event_log_item_wrap:hover>.groups_edit_event_log_item_main, .groups_edit_event_log_page .groups_edit_event_log_items_wrap .groups_edit_event_log_item_wrap_focused, .ui_ownblock:hover, .groups_cover_box .groups_edit_cover_wrap .groups_edit_cover_wrap_live .groups_edit_cover_wrap_live_previews .groups_edit_cover_wrap_live_upload .groups_edit_cover_wrap_live_upload_placeholder_disabled, .groups_cover_box .groups_edit_cover_wrap .groups_edit_cover_wrap_live .groups_edit_cover_wrap_live_previews .groups_edit_cover_wrap_live_upload .groups_edit_cover_wrap_live_upload_placeholder_enabled:hover, .stats_cont_browse_tile, .stats_cont_browse_tile .stats_cont_browse_tile_desc, .piechart_col_header th{background-color: var(--main_bg)}\
+	.prefix_input_wrap, .gedit_block_footer, .group_l_row, .community_apps_catalog_type_tabs.ui_tabs_header, .groups_edit_event_log_page .groups_edit_event_log_controls, .groups_edit_event_log_page .groups_edit_event_log_items_wrap .groups_edit_event_log_item_counter, .groups_cover_box .groups_edit_cover_header, #stats_cont.stats_cont_browse{background-color: var(--bg)}\
+	path{fill: var(--main_bg)}\
+	\
+	/*Friends&groups&videos*/\
+	.ui_tabs_header, .page_block_header {background-color: var(--bg)}\
+	.friends_user_row, .page_block_header, .ui_search.ui_search_fixed, .friends_list_bl, .disabled.selector_container, .search_sep, .search_row, .disabled.selector_container table.selector_table, .ui_search_fltr, .group_list_row, .idd_popup{border-color: var(--main_bg)}\
+	.page_block_header, .page_block_header, .friends_phonebook .friends_field, .ui_search_fltr_label, h2, .idd_popup .idd_header, #video_playlists_edit_box .pl_size, .groups_create_type .groups_create_tile_description, .groups_create_box .groups_create_box_title, .groups_create_box .groups_create_box_about, .groups_create_box .groups_create_box_field_date .groups_create_box_field_date_at_time, .datepicker_text{color: var(--white_text)}\
+	.group1, .group2, .group3, .group4, .group5, .group6, .group7, .group8, .group9, .group10{color: var(--bg)}\
+	.friends_user_row .online.mobile:after, .search_row .online.mobile:after, .search_item_img, .friends_search_filters, .friends_search_import, .ui_search_fltr, .friends_photo_img, .friends_photo_img:before, .friends_photo_img:after, .idd_popup .idd_header_wrap, .idd_popup .idd_items_content, #add_place_data{background-color: var(--bg)}\
+	.friends_user_row .online:after, .search_row .online:after, .result_list ul li.sectioned.section, .datepicker_control{border-color: var(--bg)}\
+	#payments_box.payments_money_transfer_box .payments_money_transfer_link_copy_input, .selector_container td.selector input.focused, .selector_container td.selector input.selected, .result_list ul li{-webkit-text-fill-color: var(--white_text)}\
+	.disabled.selector_container, .friends_import_row:hover, .idd_popup .idd_item.idd_hl, .idd_popup .idd_item.idd_hover, .idd_popup .idd_item.idd_hover_sublist_parent, .ui_search_new .ui_search_button_search, .ui_search_new .ui_search_button_search:hover, .groups_create_type .groups_create_tile:hover, .datepicker_text{background-color: var(--main_bg)}\
+	.idd_wrap .idd_selected_value, .idd_popup .idd_item, .groups_create_type .groups_create_title, .groups_create_type .groups_create_tile_title{color: var(--text)}\
+	\
+	/*Music*/\
+	.audio_page_player2 .audio_page_player_title_song, .audio_page_layout .audio_blocks .recoms_special_block_title, .audio_page_layout .audio_section .recoms_special_block_title, .audio_pl_item2 .audio_pl__subtitle>a, .audio_row .audio_row__position, .audio_page__shuffle_all .audio_page__shuffle_all_button, .audio_subscribe_promo__title, .audio_subscribe_promo__text{color: var(--white_text)}\
+	.audio_page_layout .audio_item__title, .audio_page_layout .audio_item__title>a, ._audio_section__search .audio_row.audio_has_lyrics .audio_row__title_inner, .ap_layer__content .audio_row.audio_has_lyrics .audio_row__title_inner, .audio_page__audio_rows .audio_row.audio_has_lyrics .audio_row__title_inner, .audio_section_global_search__audios_block .audio_row.audio_has_lyrics .audio_row__title_inner{color: var(--text)}\
+	.page_block._audio_page_content_block:before, .audio_page_layout .audio_block:before{box-shadow: var(--bg)}\
+	.audio_page_layout .audio_search_wrapper, .audio_page_player2.audio_page_player_fixed, .audio_row.audio_row__current .audio_row_content, input#audio_friends_search, .audio_page_layout .audio_friends_list, .audio_pl_edit_box .ape_header, .audio_pl_edit_box .ape_list_header, .audio_pl_edit_box .ape_cover,.audio_layer_container .audio_page_player_wrap{background-color: var(--bg)}\
+	.audio_page__shuffle_all .audio_page__shuffle_all_button:hover, .audio_pl_edit_box .ape_add_audios_btn:hover, .audio_pl_edit_box .ape_add_pl_audios_btn:hover{background-color: var(--main_bg)}\
+	.audio_page_layout .has_friends_block .audio_page__rows_wrap, .audio_feed_post, .audio_pl_edit_box .ape_header, .audio_pl_edit_box .ape_add_audios_btn, .audio_pl_edit_box .ape_add_pl_audios_btn, .audio_pl_edit_box .ape_cover, .audio_layer_container .audio_page__footer{border-color: var(--main_bg)}\
+	.audio_layer_container .audio_page_player_wrap{border-color: var(--main_bg)!important}\
 	\
 	/*DONOS*/\
 	\
