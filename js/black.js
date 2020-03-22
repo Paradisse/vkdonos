@@ -317,6 +317,14 @@ function main() {
 	.audio_page_layout .has_friends_block .audio_page__rows_wrap, .audio_feed_post, .audio_pl_edit_box .ape_header, .audio_pl_edit_box .ape_add_audios_btn, .audio_pl_edit_box .ape_add_pl_audios_btn, .audio_pl_edit_box .ape_cover, .audio_layer_container .audio_page__footer{border-color: var(--main_bg)}\
 	.audio_layer_container .audio_page_player_wrap{border-color: var(--main_bg)!important}\
 	\
+	/*Setting*/\
+	.pedit_separator, .settings_line, .settings_block_footer, .settings_privacy_row, .settings_bl_row, .settings_apps .apps_settings_row_wrap, .settings_block_msg, .settings_table_row, .settings_history_table tr td, .settings_blb_row, .settings_more, .settings_blb_row:last-child, .settings_more:hover, .ui_tabs, .help_table_question, .help_table_questions, .tickets_suggests_wrap, .tickets_suggest{border-color: var(--main_bg)}\
+	.settings_block_footer, .settings_blb_row, .faq_tabs.ui_tabs, .tickets_suggests_wrap{background-color: var(--bg)}\
+	.settings_deact_header, .box_msg, .box_msg_gray, .settings_votes_income .settings_history_amount, .settings_transfer_empty_box_header, .apps_access_item_info b, .help_tile__title_a, .help_table_questions__title, .wk_sub_sub_header{color: var(--white_text)}\
+	.settings_separated_row+.settings_separated_row:after, .settings_more:hover, .ui_actions_menu_item.feedback_new_source:hover, .help_table_question_visible, .tickets_suggest:hover{background-color: var(--main_bg)}\
+	.settings_apps .app_settings_name a, a.settings_blb_title, .help_tile_faqs__row_a, .help_table_question_visible>.help_table_question__q{color: var(--text)}\
+	.faq_search_form{box-shadow: var(--bg)}\
+	\
 	/*DONOS*/\
 	\
 	\
