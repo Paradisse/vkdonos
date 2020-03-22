@@ -127,7 +127,7 @@ function main() {
 	.fc_tab_notify{background-color: var(--main_bg); border: 1px solid var(--main_bg)}\
 	.fakeinput:focus, div[contenteditable=true]:focus, input.big_text:focus, input.dark:focus, input.search:focus, input.text:focus, textarea:focus{border-color: var(--main_bg)}\
 	.chat_cont_sh_bottom, .chat_cont_sh_top{background: linear-gradient(180deg, rgba(216,223,230,0), var(--main_bg) 80%)}\
-	.fc_msgs_unread{backgroud-color: var(--bg)}\
+	.fc_msgs_unread{background-color: var(--bg)}\
 	\
 	/*smiles*/\
 	.emoji_tt_wrap{background-color: var(--one_bg); border: 1px solid var(--main_bg)}\
