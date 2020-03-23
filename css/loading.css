@@ -22,7 +22,7 @@
 #side_bar ol li .left_row:hover:before {
     position: absolute;
     content: "";
-    transform: translate(-6px, 6px);
+    transform: translate(-6px, 8px);
     border: 6px solid transparent;
     border-left-color: var( --white_text);
 }
