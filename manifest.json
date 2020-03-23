@@ -15,12 +15,14 @@
       "js": [
         "js/main.js",
         "js/rating.js",
-        "js/black.js"
+        "js/black.js",
+        "js/loading.js"
       ],
       "css": [
         "css/styles.css",
         "css/test.css",
-        "css/black.css"
+        "css/black.css",
+        "css/loading.css"
       ],
       "run_at": "document_end"
     }
