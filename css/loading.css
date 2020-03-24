@@ -27,16 +27,6 @@
     border-left-color: var( --white_text);
 }
 
-.ui_rmenu_item:hover:after, .ui_rmenu_subitem:hover:after, .ui_rmenu_item_sel:after, .ui_rmenu_item_sel:hover:after {
-    position: absolute;
-    content: "";
-    transform: translate(-50px, 10px);
-    border: 6px solid transparent;
-    right: 0;
-    border-right-color: var( --white_text);
-}
-
-
 .cont_load {
 	text-align: center;
 	padding: 100px 0 0 0;

@@ -29,13 +29,13 @@ function main() {
 	'body{background: var(--bgg)}\
 	#page_header_cont .back{background: var(--one_bg); border-color:var(--one_bg)}\
 	/*dialog*/\
-	#side_bar ol li .left_row:hover, .dev_top_link.sel, .dev_top_link.sel:hover, .dev_home_link:hover, .dev_top_link:hover, .top_nav_link.active, .top_nav_link:hover, .top_nav_btn.active, .top_nav_btn:hover, .top_audio_player.active, .top_audio_player:hover, .dev_top_input, .im-page .im-page--center-empty{background: none;}\
+	#side_bar ol li .left_row:hover, .dev_top_link.sel, .dev_top_link.sel:hover, .dev_home_link:hover, .dev_top_link:hover, .top_nav_link.active, .top_nav_link:hover, .top_nav_btn.active, .top_nav_btn:hover, .top_audio_player.active, .top_audio_player:hover, .dev_top_input{background: none;}\
 	#side_bar ol li .left_row, a.im-page--dialogs-filter, a._im_start_new, .im-mess-stack .im-mess-stack--content .im-mess-stack--pname>a, a.im-page--title-main-inner._im_page_peer_name{color: var(--text)}\
 	.page_block, .im-page .im-page--dialogs-footer.ui_grey_block, .im-page--header.ui_search._im_dialogs_search, .ui_search.ui_search_field_empty._im_dialogs_search_input.im-page--dialogs-search.ui_search_custom._wrap.ui_search_old, .ui_search_input_block, .im-page--mess-search._im_mess_search, .nim-dialog .nim-dialog--content, .im-page--chat-header-in, .im-page--title-wrapper, .im-page--toolsw, .im-chat-input.clear_fix._im_chat_input_parent, .im-mess.im-mess_selected:last-child:before, .im-mess.im-mess_unread:last-child:before, .im-page .im-page--history-new-bar, .thumbed_link__thumb, .thumbed_link__label, .thumbed_link--chat-invitation, .im-page .im-page--history-new-bar:after, .im-page .im-page--history-new-bar:before, .im-page .im-page--history-new-bar>span{background-color: var(--bg); box-shadow: none; border: none;}\
 	.im-mess--text.wall_module._im_log_body, .thumbed_link--chat-invitation .thumbed_link__title, .im-page .im-search-results-head, a.im-popular--name, span._im_dialog_link, span.im-page--selected-messages-count{color: var(--white_text)}\
 	.nim-dialog.nim-dialog_unread-out.nim-dialog_muted:not(.nim-dialog_failed) .nim-dialog--unread, .nim-dialog.nim-dialog_unread-out:not(.nim-dialog_failed) .nim-dialog--unread, .nim-dialog.nim-dialog_unread.nim-dialog_unread-out:not(.nim-dialog_failed) .nim-dialog--unread{background-color: var(--mark)}\
 	.nim-dialog .nim-dialog--preview-attach{color: var(--text)}\
-	.im-page .im-page--top-date-bar{background: none; color:var(--white_text)}\
+	.im-page .im-page--top-date-bar{background: var(--main_bg); color:var(--white_text); border: none}\
 	input.ui_search_field{color: var(--white_text)}\
 	.im-page .im-page--mess-search{color: var(--text)}\
 	.im-page .im-page--mess-search:hover{color: var(--text); background: var(--main_bg)}\
@@ -69,23 +69,28 @@ function main() {
 	.top_profile_mrow{color: var(--white_color)}\
 	.top_profile_sep{border-color: var(--main_bg)}\
 	\
+	.MessageForward__content{background-color: var(--bgg)}\
 	.im-create .im-create--tabs, .im-create--table, .im-create--search{background: var(--bg)}\
 	.ui_search, .ui_tabs, .olist_item_wrap{border-color: var(--bg)}\
 	.olist_item_name{color: var(--text)}\
 	.im-create .im-creation--item.im-creation--item_hovered, .im-create .im-creation--item:hover{background: var(--main_bg); border-color: var(--main_bg)}\
 	.im-create .im-creation--item.im-creation--item_hovered .olist_item_photo_wrap.online:after, .im-create .im-creation--item:hover .olist_item_photo_wrap.online:after, .online:after{border-color: var(--main_bg)}\
 	.ui_grey_block{border-color: var(--main_bg); background: var(--bg)}\
-	.button_blue button, .button_gray button, .button_light_gray button, .flat_button{color: var(--white_text); background-color: var(--mark)}\
+	.button_blue button, .button_gray button, .button_light_gray button, .flat_button{color: var(--white_text)}\
 	.im-page-btn{color: var(--text)}\
 	.im-mess.im-mess_selected+.im-mess:before, .im-mess.im-mess_unread+.im-mess:before{background: none}\
 	.im-chat-input--editing-head{color: var(--text)}\
-	.pv_cont .narrow_column, .im-dropbox{background-color: var(--bg)}\
+	.pv_cont .narrow_column, .im-dropbox, .Avatar--online.Avatar--mobile:after{background-color: var(--bg)}\
 	.pv_comments{border-color: var(--main_bg)}\
 	.pv_author_block{border-color: var(--main_bg); background-color: var(--bg)}\
-	.im-replied--text{color: var(--white_text)}\
-	#side_bar .more_div{border-color: var(--main_bg)}\
+	.im-replied--text, .medadd_c_linkimg_big .medadd_c_linkhead{color: var(--white_text)}\
+	#side_bar .more_div, input.BlockSearchInput, .ListItem--active .ListItem__main, .ListItem--can-be-hovered.ListItem--selectable:hover .ListItem__main, .ListItem--active, .ListItem--can-be-hovered.ListItem--selectable:hover{border-color: var(--main_bg)}\
 	.nim-dialog .nim-dialog--photo, .online.mobile:after, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_muted.nim-dialog_selected .nim-dialog--photo .online.mobile:after, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_selected .nim-dialog--photo .online.mobile:after, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_hovered .nim-dialog--photo .online.mobile:after, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_unread.nim-dialog_classic .nim-dialog--photo .online.mobile:after, .nim-dialog:not(.nim-dialog_deleted):hover .nim-dialog--photo .online.mobile:after, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_muted.nim-dialog_selected .nim-dialog--photo, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_selected .nim-dialog--photo{border-radius: 0}\
 	.nim-dialog.nim-dialog_failed.nim-dialog_muted .nim-dialog--unread, .nim-dialog.nim-dialog_unread.nim-dialog_muted .nim-dialog--unread, .nim-dialog.nim-dialog_unread.nim-dialog_prep-injected.nim-dialog_muted .nim-dialog--unread{background: var(--text)}\
+	.medadd_c_linkcon, .ListItem--border:before{background-color: var(--main_bg)}\
+	.medadd_inline_editable:hover {background-color: #e7ebf0; color: var(--bg)}\
+	.Entity__title{color: var(--text)}\
+	.Avatar--online:after{border-color: var(--bg)}\
 	\
 	/*classic_dialog*/\
 	.im-page_classic.im-page .im-page--dialogs, .im-page_classic.im-page .im-page--dcontent, .im-page--chat-header{background: var(--bg)}\
@@ -102,12 +107,12 @@ function main() {
 	.im-create.im-create_classic .im-create--footer{background: var(--bg)}\
 	\
 	/*feed*/\
-	.ui_rmenu_item, .ui_rmenu_subitem{color: var(--text);}\
+	.ui_rmenu_item, .ui_rmenu_subitem, .bookmark_tag{color: var(--text);}\
 	body, a, .feed_update_row .post_author, .right_list_header, .feed_updates .explain, .ui_rmenu_item_sel, .ui_rmenu_item_sel:hover, .eltt .eltt_fancy_action, .reply_submit_hint_opts .radiobtn, .apps_feedRightAppsBlock.apps_feedRightAppsBlock_single_app .apps_feedRightAppsBlock__desc, .poster-uploader__title, .ui_rmenu_subitem.ui_rmenu_item_sel, .ui_rmenu_subitem.ui_rmenu_item_sel:hover, .module_header .header_top, .post_upload_dropbox, .wall_tt, .tt_w, div[contenteditable=true], .ui_gallery_wall_cards .wall_card__title_link, .audio__title_inner, .audio_row__title {color: var(--white_text);}\
-	.ui_rmenu_sep, .feed_updates .wall_module .feed_row .post, .poster__open-btn-wrapper, #ads_left.ads_left_empty+.left_menu_nav_wrap, .deep_active .replies .reply_fakebox, .deep_active.wall_module .replies .reply_fakebox, .deep_active.wall_module .wl_replies_block_wrap .reply_fakebox, .deep_active .wl_replies_block_wrap .reply_fakebox, .deep_active .replies .reply_box div.submit_post_field, .deep_active .replies .reply_box div.submit_post_field[contenteditable=true], .deep_active .replies .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active .replies .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .replies .reply_box div.submit_post_field, .deep_active.wall_module .replies .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .replies .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active.wall_module .replies .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .wl_replies_block_wrap .reply_box div.submit_post_field, .deep_active.wall_module .wl_replies_block_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active.wall_module .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active .wl_replies_block_wrap .reply_box div.submit_post_field, .deep_active .wl_replies_block_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active .replies .reply .reply_wrap, .deep_active.wall_module .replies .reply .reply_wrap, .deep_active.wall_module .wl_replies_block_wrap .reply .reply_wrap, .deep_active .wl_replies_block_wrap .reply .reply_wrap, .deep_active .replies .replies_wrap_deep, .deep_active.wall_module .replies .replies_wrap_deep, .deep_active.wall_module .wl_replies_block_wrap .replies_wrap_deep, .deep_active .wl_replies_block_wrap .replies_wrap_deep, #submit_post_box:not(.shown):not(.own_field) .poster__open-btn-wrapper, .olist_item_wrap:hover, .olist_topsh .olist_filter_wrap, .poster__toolbar-wrapper, .post_upload_dropbox_inner, .wall_module .replies_list, .deep_active .replies .replies_wrap_deep .reply_media_preview, .deep_active.wall_module .replies .replies_wrap_deep .reply_media_preview, .deep_active.wall_module .wl_replies_block_wrap .replies_wrap_deep .reply_media_preview, .deep_active .wl_replies_block_wrap .replies_wrap_deep .reply_media_preview, .deep_active .replies .replies_wrap_deep .reply_box_inner_wrap .reply_fakebox, .deep_active.wall_module .replies .replies_wrap_deep .reply_box_inner_wrap .reply_fakebox, .deep_active.wall_module .wl_replies_block_wrap .replies_wrap_deep .reply_box_inner_wrap .reply_fakebox, .deep_active .wl_replies_block_wrap .replies_wrap_deep .reply_box_inner_wrap .reply_fakebox, span.im-to-end__button{border-color: var(--main_bg)}\
-	.ui_rmenu_item:hover, .ui_rmenu_subitem:hover, .ui_rmenu_item_sel, .ui_rmenu_item_sel:hover{background: none;}\
+	.ui_rmenu_sep, .feed_updates .wall_module .feed_row .post, .poster__open-btn-wrapper, #ads_left.ads_left_empty+.left_menu_nav_wrap, .deep_active .replies .reply_fakebox, .deep_active.wall_module .replies .reply_fakebox, .deep_active.wall_module .wl_replies_block_wrap .reply_fakebox, .deep_active .wl_replies_block_wrap .reply_fakebox, .deep_active .replies .reply_box div.submit_post_field, .deep_active .replies .reply_box div.submit_post_field[contenteditable=true], .deep_active .replies .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active .replies .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .replies .reply_box div.submit_post_field, .deep_active.wall_module .replies .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .replies .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active.wall_module .replies .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .wl_replies_block_wrap .reply_box div.submit_post_field, .deep_active.wall_module .wl_replies_block_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active.wall_module .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active .wl_replies_block_wrap .reply_box div.submit_post_field, .deep_active .wl_replies_block_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active .replies .reply .reply_wrap, .deep_active.wall_module .replies .reply .reply_wrap, .deep_active.wall_module .wl_replies_block_wrap .reply .reply_wrap, .deep_active .wl_replies_block_wrap .reply .reply_wrap, .deep_active .replies .replies_wrap_deep, .deep_active.wall_module .replies .replies_wrap_deep, .deep_active.wall_module .wl_replies_block_wrap .replies_wrap_deep, .deep_active .wl_replies_block_wrap .replies_wrap_deep, #submit_post_box:not(.shown):not(.own_field) .poster__open-btn-wrapper, .olist_item_wrap:hover, .olist_topsh .olist_filter_wrap, .poster__toolbar-wrapper, .post_upload_dropbox_inner, .wall_module .replies_list, .deep_active .replies .replies_wrap_deep .reply_media_preview, .deep_active.wall_module .replies .replies_wrap_deep .reply_media_preview, .deep_active.wall_module .wl_replies_block_wrap .replies_wrap_deep .reply_media_preview, .deep_active .wl_replies_block_wrap .replies_wrap_deep .reply_media_preview, .deep_active .replies .replies_wrap_deep .reply_box_inner_wrap .reply_fakebox, .deep_active.wall_module .replies .replies_wrap_deep .reply_box_inner_wrap .reply_fakebox, .deep_active.wall_module .wl_replies_block_wrap .replies_wrap_deep .reply_box_inner_wrap .reply_fakebox, .deep_active .wl_replies_block_wrap .replies_wrap_deep .reply_box_inner_wrap .reply_fakebox, span.im-to-end__button, .bookmark_footer{border-color: var(--main_bg)}\
+	.ui_rmenu_item_sel, .ui_rmenu_item_sel:hover{background: none;}\
 	.top_notify_countб .top_nav_btn:hover .top_notify_count, .post_suggest, .submit_post, .post_actions_btns, .deep_active .post_replies_header, .deep_active.wall_module .post_replies_header{border-color: var(--bgg)}\
-	.stl_active.over_fast #stl_bg, .submit_post, .wall_module .reply_box, .wall_module .reply_fakebox_wrap, .deep_active .replies .reply_fakebox, .deep_active.wall_module .replies .reply_fakebox, .deep_active.wall_module .wl_replies_block_wrap .reply_fakebox, .deep_active .wl_replies_block_wrap .reply_fakebox, .wall_module .reply_form, .deep_active .replies .reply_field_wrap .reply_field, .deep_active .replies .wl_reply_form_wrap .reply_field_wrap .reply_field, .deep_active.wall_module .replies .reply_field_wrap .reply_field, .deep_active.wall_module .replies .wl_reply_form_wrap .reply_field_wrap .reply_field, .deep_active.wall_module .wl_replies_block_wrap .reply_field_wrap .reply_field, .deep_active.wall_module .wl_replies_block_wrap .wl_reply_form_wrap .reply_field_wrap .reply_field, .deep_active .wl_replies_block_wrap .reply_field_wrap .reply_field, .deep_active .wl_replies_block_wrap .wl_reply_form_wrap .reply_field_wrap .reply_field, .poster__toolbar, .poster__slider-arrow:hover, .post_upload_dropbox.dropbox_over .post_upload_dropbox_inner, .search_filters_minimized_text, .post_upload_dropbox, .im-to-end:focus .im-to-end__button, .im-to-end:hover .im-to-end__button, .wall_module .like_tt_bottom_page_friend_reply{background-color: var(--bg)}\
+	.stl_active.over_fast #stl_bg, .submit_post, .wall_module .reply_box, .wall_module .reply_fakebox_wrap, .deep_active .replies .reply_fakebox, .deep_active.wall_module .replies .reply_fakebox, .deep_active.wall_module .wl_replies_block_wrap .reply_fakebox, .deep_active .wl_replies_block_wrap .reply_fakebox, .wall_module .reply_form, .deep_active .replies .reply_field_wrap .reply_field, .deep_active .replies .wl_reply_form_wrap .reply_field_wrap .reply_field, .deep_active.wall_module .replies .reply_field_wrap .reply_field, .deep_active.wall_module .replies .wl_reply_form_wrap .reply_field_wrap .reply_field, .deep_active.wall_module .wl_replies_block_wrap .reply_field_wrap .reply_field, .deep_active.wall_module .wl_replies_block_wrap .wl_reply_form_wrap .reply_field_wrap .reply_field, .deep_active .wl_replies_block_wrap .reply_field_wrap .reply_field, .deep_active .wl_replies_block_wrap .wl_reply_form_wrap .reply_field_wrap .reply_field, .poster__toolbar, .poster__slider-arrow:hover, .post_upload_dropbox.dropbox_over .post_upload_dropbox_inner, .search_filters_minimized_text, .post_upload_dropbox, .im-to-end:focus .im-to-end__button, .im-to-end:hover .im-to-end__button, .wall_module .like_tt_bottom_page_friend_reply, .bookmark_footer{background-color: var(--bg)}\
 	#stl_text, .post_suggest .post_suggest__action_text, .wall_module a.wall_reply_greeting, .deep_active .post_replies_header .post_replies_reorder, .deep_active.wall_module .post_replies_header .post_replies_reorder, .reply_submit_hint_title, .feed_new_posts, .ui_tabs_box .ui_tab_sel .ui_tab_count, .Post__copyrightButton, .poster__new-bkg-btn-layout, .wall_module .replies_open, .wall_module .wr_header, .wall_module .media_desc .a{color: var(--text)}\
 	.post_suggest:after, .post_suggest:before, .like_cont, .poster__settings-btn-wrapper{border: none}\
 	.deep_active .replies .replies_wrap_deep .replies_deep_collapse:before, .deep_active.wall_module .replies .replies_wrap_deep .replies_deep_collapse:before, .deep_active.wall_module .wl_replies_block_wrap .replies_wrap_deep .replies_deep_collapse:before, .deep_active .wl_replies_block_wrap .replies_wrap_deep .replies_deep_collapse:before, .eltt .eltt_fancy_action:hover, .feed_new_posts:hover, .olist_item_wrap:hover, .poster__slider-arrow, .Post__copyrightButton:hover, .poster-uploader__drop-box:hover, .poster__change-bkg-btn, .ui_toggler.on, .ui_toggler, .post_upload_dropboxs, .wall_module .replies_open, .wall_module .wr_header, .tabbed_box .summary_tab .summary_tab3:hover, .tabbed_box .summary_tab_sel .summary_tab3:hover, .tabbed_box .summary_tab_sel a:hover, .tabbed_box .summary_tab a:hover, span.im-to-end__button, .ui_actions_menu_sublist .ui_actions_menu_item.checked:hover, .checkbox+.Post__copyrightButton:after{background-color: var(--main_bg)}\
@@ -125,6 +130,7 @@ function main() {
 	.left_count_wrap{background-color: var(--main_bg); color: var(--white_text)}\
 	.wall_module .like_tt_bottom_page_friend_reply{background-color: var(--bgg)!important}\
 	.left_settings_inner{left: -20px}\
+	.ui_rmenu_item:hover, .ui_rmenu_item_sel, .ui_rmenu_item_sel:hover, .ui_rmenu_subitem:hover{background-color: var(--main_bg)}\
 	\
 	/*minidialog*/\
 	.fc_tab_head{background-color: #000; border: 1px solid var(--one_bg)}\
@@ -215,6 +221,7 @@ function main() {
 	.emoji_sticker_item.over, .emoji_sticker_item:hover{background: var(--main_bg)}\
 	.sticker_hints_arrow{background-color: var(--bg); border-color: var(--bg)}\
 	.sticker_hints_arrow:hover{background: var(--bgg)}\
+	img[src*="/sticker/"]:not(.im_stickers_my_img), .svg_sticker_animation{filter: drop-shadow(1.5px 0 0 #eee) drop-shadow(-1.5px 0 0 #eee) drop-shadow(0 1.5px 0 #eee) drop-shadow(0 -1.5px 0 #eee)!important; -webkit-filter: drop-shadow(1px 0 0 #eee) drop-shadow(-1px 0 0 #eee) drop-shadow(0 1px 0 #eee) drop-shadow(0 -1px 0 #eee)!important; padding:1.5px}\
 	\
 	/*photos*/\
 	.photos_choose_upload_area, .web_cam_photo{background: var(--bg); color: var(--white_text)}\
@@ -235,7 +242,7 @@ function main() {
 	/*document*/\
 	.docs_choose_upload_area{background-color: var(--bg); color: var(--white_text)}\
 	.docs_choose_rows .docs_item:hover, .docs_choose_upload_area:hover{background-color: var(--main_bg)}\
-	.docs_item, .docs_choose_rows .docs_item, .ui_search.ui_search_fixedborder-color: var(--main_bg)}\
+	.docs_item, .docs_choose_rows .docs_item, .ui_search.ui_search_fixed, .bookmark_rows_mini .bookmarks_row:after{border-color: var(--main_bg)}\
 	\
 	/*surprise*/\
 	.gifts_box_header{background-color: var(--bg)}\
@@ -282,7 +289,7 @@ function main() {
 	.top_notify_cont .feedback_header, .feedback_header b, .top_notify_cont .top_notify_header, .top_notify_header, .feedback_header{color: var(--white_text)}\
 	.feedback_header .author, .feedback_header .group_link, .feedback_header .mem_link{color: var(--text)}\
 	.top_notify_show_all:hover, .notify_sources_tt_content .content:not(:hover) .line_cell.selected, .notify_sources_tt_content .line_cell:hover, .top_notify_cont .feedback_row:not(.dld).hover, .top_notify_cont .feedback_row:not(.dld):hover, .feedback_row_clickable:not(.feedback_row_touched):hover, .flist_item_wrap:hover{background-color: var(--main_bg)}\
-	.ui_scroll_default_theme>.ui_scroll_bar_container>.ui_scroll_bar_outer>.ui_scroll_bar_inner{background: var(--white_text)}\
+	.ui_scroll_default_theme>.ui_scroll_bar_container>.ui_scroll_bar_outer>.ui_scroll_bar_inner, .top_notify_cont{background: var(--white_text)}\
 	\
 	/*Статья*/\
 	.article_ed_layer, .article_ed_layer .article_ed_layer__header {background-color: var(--bg)}\
@@ -297,6 +304,8 @@ function main() {
 	.wide_column .page_top, .counts_module, .module, .wk_wall_archive__tabs .ui_tabs, .profile_info_block, .page_status_editor .editor, .page_actions_wrap, .page_actions_inner, .preq_tt, .page_actions_separator, .wall_module .copy_quote, .wall_module .reply~.reply .dld, .wall_module .reply~.reply .reply_wrap, .gifts_box_rows .post{border-color: var(--main_bg)}\
 	.my_current_info:hover, .no_current_info:hover, .profile_more_info_link:hover{background-color: var(--main_bg)}\
 	.wk_wall_archive__tabs, .profile_info_edit, .profile_info_header, .page_status_editor .editor, .page_actions_wrap, .page_actions_header, .preq_wrap, .pv_white_bg, #groups_menu_items .groups_edit_menu_items .groups_edit_menu_item .groups_edit_menu_item_line{background-color: var(--bg)}\
+	.button_blue button, .button_gray button, .button_light_gray button, .flat_button, .button_blue button, .button_gray button, .button_light_gray button, .flat_button{background-color: var(--btn)}\
+	.profile_msg_split .profile_btn_cut_right, .profile_msg_split .profile_btn_cut_left{border-color: var(--bg)}\
 	\
 	/*Your group*/\
 	.ui_tab_default .ui_tab_plain, .gtop_complex_message .gtop_content .gtop_header, .page_market_item_title, .gtop_complex_message .gtop_content .gtop_message, .public_help_block, input#group_edit_addr, #groups_menu_promo .apps_group_catalog_promo_header, .groups_edit_chats .groups_chats_promo .apps_group_catalog_promo_header, #groups_apps_catalog_promo .apps_group_catalog_promo_header, .apps_group_catalog_header .apps_group_catalog_header_desc .apps_group_catalog_header_desc_text, .ui_tooltipMenu__link, ul.listing li span, .groups_cover_box .groups_edit_cover_header .groups_edit_cover_header_title, .groups_cover_box .groups_edit_cover_wrap .groups_edit_cover_wrap_desc, .stats_cont_browse_tile, #stats_cont h4, .stats_head, #group_section_menu .module_body .ui_gallery .ui_gallery_item .groups_menu_item .groups_menu_item_title{color: var(--white_text)}\
@@ -341,8 +350,41 @@ function main() {
 	.box_body .im_stickers_store_wrap .ui_tabs, .im_stickers_my_row~.im_stickers_my_row, .im_stickers_store_wrap .ui_tabs_fixed .ui_tabs{border-color: var(--main_bg)}\
 	.ui_tab_plain{color: var(--text)}\
 	\
+	/*Lang*/\
+	.language_box_row.language_box_row_selected .language_box_row_label{color: var(--white_text)}\
+	.language_box_row:hover{background-color: var(--main_bg)}\
+	.language_box_row .language_box_row_label, .language_selected {color: var(--text)}\
+	\
+	/*Вкладка ЕЩЁ*/\
+	body.is_page, #page_wrap, .PageNavigation_wrap{background-color: var(--bgg)}\
+	.landing_transparencyHeader, .landing_transparencyFooter{background-color: var(--one_bg)}\
+	.landing_safetyStats__count, .landing_safety .landing_transparencySection__next, .landing_transparencySection__title, .landing_safety .landing_transparencySection__wiki .wikiSubHeader, .landing_safety .landing_transparencySection__wiki a.wikiExtLink, .landing_safety .landing_transparencySection__wiki a.wikiExtLink:hover, .landing_safety .landing_transparencySection__wiki a.wikiVkLink, .landing_safety .landing_transparencySection__wiki a.wikiVkLink:hover, .landing_transparencyFooter a, .landing_transparencySection_tips b, a.AboutLinksItem:hover .AboutLinksItem__title, a.AboutLinksItem.AboutLinksItem--subtitle-link:hover .AboutLinksItem__title, .AboutLinksItem--press .AboutLinksItem__subtitle, .AboutLinksItem--support .AboutLinksItem__subtitle, .NavBar__link:hover, .PageNavigationBottom__lang a, .PageNavigation__navBar .ui_tab_sel, .PageNavigation__navBar .ui_tab_sel:hover, .TeamPageLink:hover .TeamPageLink__title, .JobThumb:hover .JobThumb__title, .ProductsAppItem>a:hover .ProductsAppItem__title, .SmallAppLink, .ProductsLandingItem:hover .ProductsLandingItem__title, .BlogPostThumb__linkWrapper:hover .BlogPostThumb__title, .BlogPageSideMenu__link{color: var(--text)}\
+	.landing_safetyStats__title, .ScrollElement__title, .AboutLinksItem__title, .AboutLinksItem__subtitle, .NavBar__link, .TeamPageLink__title, .JobsPageHeader__subtitle, .JobThumb__description, .JobThumb__title, .ProductsAppItem__title, .ProductsLandingItem__title, .ProductsLandingItem__subtitle, .BlogPageTopMenu__link--active, .BlogPostThumb__text, .BlogPostThumb__title, .BlogPageSideMenu__sectionHeader, .BlogPageSideMenu__text{color: var(--white_text)}\
+	.landing_transparencyFooter{box-shadow: var(--bg)}\
+	.landing_safety .landing_transparencySection__wiki .wikiSubHeader:before{background-color: var(--mark)}\
+	.PageSection--gradient:before{background: none}\
+	html, body{background-color: var(--bgg)}\
+	body.scrolled .PageNavigation_wrap, .PageFooterWrap{border-color: var(--bg)}\
+	.JobsPopup__description, .FormGroup__labeled>input, .FormGroup__labeled>textarea, .BlogPageSideMenu__separator{border-color: var(--main_bg)}\
+	.PagesDropdown .results_container .active{background-color: var(--white_text)}\
+	.PagesDropdown .results_container a, .PagesDropdown .results_container li{color: var(--mark)}\
+	\
+	/*Stories*/\
+	.EditorTabs__header, .BaseModal__content, .PhotoEditor__canvas{background-color: var(--bg)}\
+	.EditorTabs__header, .PhotoEditor__actions, .StatusPanel__background--active:after{border-color: var(--main_bg)}\
+	.StatusPanel__arrow--right{linear-gradient(90deg, rgba(30,30,30,0) 0, rgba(30,30,30,.84) 22%, var(--bg) 37%, var(--bg))}\
+	.StatusPanel__arrow--left{linear-gradient(90deg, var(--bg) 0, var(--bg) 63%, rgba(30,30,30,.84) 78%, rgba(30,30,30,0))}\
+	.StickersPanel__header{background-color: var(--bg)}\
+	.StickersPanel__tab--selected, .StickersPanel__tab--selected:hover, .StickersPanel__tab:hover, .StickersPanel__preview:hover, .StickersPanel__arrow--right, .StickersPanel__arrow--left{background-color: var(--main_bg)}\
+	\
 	/*DONOS*/\
 	\
+	\
+	/*UPDATE*/\
+// div#page_avatar{background-image: url("https://i.imgur.com/LI22hN0.png"); width: 600px}\
+	.pv_cont .pv_closed_commments_placeholder{background-image: url("https://i.imgur.com/IMydyAG.png")}\
+	.no_posts_cover{background-image: url(https://i.imgur.com/ll6LrUq.png)}\
+	.im-page .im-page--center-empty{background: url(https://i.imgur.com/zSxzsLb.png) 60px 0px no-repeat}\
 	\
 	'
 }
@@ -358,3 +400,4 @@ like_mark = '#f73c4a'
 
 bgg = '#111111'
 white_text = '#dee3e7'
+btn = '#4779bd'
