@@ -1,4 +1,4 @@
-:root{
+:root {
 	--one_bg: #0d0e0d;
 	--bg: #191b19;
 	--main_bg: #292c29;
@@ -9,6 +9,7 @@
 	--bgg: #111111;
 	--white_text: #dee3e7;
 	--btn: #4779bd;
+	--sep: #414141;
 }
 
 .menu_style_btn{

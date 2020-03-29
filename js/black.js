@@ -172,10 +172,12 @@ function main() {
 	.im-mess .im-mess--btn{color: var(--text)}\
 	\
 	/*search*/\
+	.highlight{background: var(--sep)!important}\
 	.ts_cont_wrap{background: var(--bg)}\
 	a.ts_contact.active, a.ts_search_link.active, .ts_contact.active .ts_contact_photo.online.mobile:after, .ts_contact_photo.online.mobile:after{background-color: var(--main_bg)}\
 	.ts_contact.active, .ts_contact_photo.online:after{border-color: var(--main_bg)}\
 	.ts_contact_name{color: var(--text)}\
+	.ts_search_sep{border-top: 1px solid var(--sep)}\
 	input#ts_input{color: var(--white_text)}\
 	.im-page-pinned{background-color: var(--bg); border-color: var(--main_bg)}\
 	.im-page .im-page--header, .im-page .im-page--search-header{background: var(--bg)}\
@@ -346,7 +348,7 @@ function main() {
 	.audio_page__shuffle_all .audio_page__shuffle_all_button:hover, .audio_pl_edit_box .ape_add_audios_btn:hover, .audio_pl_edit_box .ape_add_pl_audios_btn:hover, .audio_layer_container .audio_friend:hover{background-color: var(--main_bg)}\
 	.audio_page_layout .has_friends_block .audio_page__rows_wrap, .audio_feed_post, .audio_pl_edit_box .ape_header, .audio_pl_edit_box .ape_add_audios_btn, .audio_pl_edit_box .ape_add_pl_audios_btn, .audio_pl_edit_box .ape_cover, .audio_layer_container .audio_page__footer, .audio_pl_snippet2 .audio_pl_snippet__header, div[contenteditable=true], .wdd_list, .wddi, .wddi_over, .like_share_ava.wdd_imgs .wdd_img_full, .like_share_ava.wdd_imgs .wdd_img_half, .like_share_ava.wdd_imgs .wdd_img_tiny, .audio_subscribe_promo{border-color: var(--main_bg)}\
 	.audio_layer_container .audio_page_player_wrap{border-color: var(--main_bg)!important}\
-	.audio_restriction_box__title{color: var(--white_text)} .audio_page_separator{background-color: #414141!important}\
+	.audio_restriction_box__title{color: var(--white_text)} .audio_page_separator{background-color: var(--sep)!important}\
 	\
 	/*Setting*/\
 	.pedit_separator, .settings_line, .settings_block_footer, .settings_privacy_row, .settings_bl_row, .settings_apps .apps_settings_row_wrap, .settings_block_msg, .settings_table_row, .settings_history_table tr td, .settings_blb_row, .settings_more, .settings_blb_row:last-child, .settings_more:hover, .ui_tabs, .help_table_question, .help_table_questions, .tickets_suggests_wrap, .tickets_suggest{border-color: var(--main_bg)}\
@@ -502,3 +504,4 @@ like_mark = '#f73c4a'
 bgg = '#111111'
 white_text = '#dee3e7'
 btn = '#4779bd'
+sep = '#414141'
