@@ -66,8 +66,9 @@ function main() {
 	.tt_default, .tt_default_right{border-color: var(--bgg); background: var(--bgg)}\
 	.notify_sources_tt_content .line_cell .info, .im-dropbox--msg{ color: var(--white_text)}\
 	.ui_actions_menu_item, .im-fwd.im-fwd_msg .im-fwd--messages{color: var(--white_text)}\
-	.ui_actions_menu_item:hover, .im-dropbox--rect.dropbox_over{background-color: var(--main_bg)}\
+	.ui_actions_menu_item:hover, .im-dropbox--rect.dropbox_over, .ui_actions_menu_item.feed_custom_list:hover, .ui_actions_menu_item.feed_new_list:hover{background-color: var(--main_bg)}\
 	.ui_actions_menu{background: var(--bgg); border: 1px solid var(--bgg)}\
+	.feed_list_name_wrap{border-bottom: 1px solid var(--main_bg)}\
 	.ui_actions_menu_sep{border: 1px solid var(--main_bg)}\
 	\
 	#top_profile_menu{background: var(--bgg); border-color: var(--bgg)}\
@@ -96,6 +97,10 @@ function main() {
 	.medadd_inline_editable:hover {background-color: #e7ebf0; color: var(--bg)}\
 	.Entity__title{color: var(--text)}\
 	.Avatar--online:after{border-color: var(--bg)}\
+	\
+	/*hyperlink*/\
+	.media_link__label{background: var(--main_bg)}\
+	.media_link__title{color: var(--white_text)}\
 	\
 	/*classic_dialog*/\
 	.im-page_classic.im-page .im-page--dialogs, .im-page_classic.im-page .im-page--dcontent, .im-page--chat-header{background: var(--bg)}\
