@@ -346,6 +346,7 @@ function main() {
 	.audio_page__shuffle_all .audio_page__shuffle_all_button:hover, .audio_pl_edit_box .ape_add_audios_btn:hover, .audio_pl_edit_box .ape_add_pl_audios_btn:hover, .audio_layer_container .audio_friend:hover{background-color: var(--main_bg)}\
 	.audio_page_layout .has_friends_block .audio_page__rows_wrap, .audio_feed_post, .audio_pl_edit_box .ape_header, .audio_pl_edit_box .ape_add_audios_btn, .audio_pl_edit_box .ape_add_pl_audios_btn, .audio_pl_edit_box .ape_cover, .audio_layer_container .audio_page__footer, .audio_pl_snippet2 .audio_pl_snippet__header, div[contenteditable=true], .wdd_list, .wddi, .wddi_over, .like_share_ava.wdd_imgs .wdd_img_full, .like_share_ava.wdd_imgs .wdd_img_half, .like_share_ava.wdd_imgs .wdd_img_tiny, .audio_subscribe_promo{border-color: var(--main_bg)}\
 	.audio_layer_container .audio_page_player_wrap{border-color: var(--main_bg)!important}\
+	.audio_restriction_box__title{color: var(--white_text)} .audio_page_separator{background-color: #414141!important}\
 	\
 	/*Setting*/\
 	.pedit_separator, .settings_line, .settings_block_footer, .settings_privacy_row, .settings_bl_row, .settings_apps .apps_settings_row_wrap, .settings_block_msg, .settings_table_row, .settings_history_table tr td, .settings_blb_row, .settings_more, .settings_blb_row:last-child, .settings_more:hover, .ui_tabs, .help_table_question, .help_table_questions, .tickets_suggests_wrap, .tickets_suggest{border-color: var(--main_bg)}\
@@ -397,7 +398,7 @@ function main() {
 // div#page_avatar{background-image: url("https://i.imgur.com/LI22hN0.png"); width: 600px}\
 	.pv_cont .pv_closed_commments_placeholder{background-image: url("https://i.imgur.com/IMydyAG.png")}\
 	.no_posts_cover{background-image: url(https://i.imgur.com/ll6LrUq.png)}\
-	.im-page .im-page--center-empty{background: url(https://i.imgur.com/zSxzsLb.png) 60px 0px no-repeat}\
+	.im-page .im-page--center-empty{background: url(https://i.imgur.com/zSxzsLb.png) 60px 0px no-repeat} .pv_cont .pv_no_commments_placeholder{background-image: url(https://i.imgur.com/zSxzsLb.png)}\
 	.feedback_img:after, .im_grid>img:after, .nim-peer--photo>img:after, img[src*="/images/dquestion_i"], img[src*="/images/camera_"], [style*="/images/camera_"] {    background: url(https://i.imgur.com/LI22hN0.png) -6px no-repeat; background-size: 55px;}\
 	\
 	'
