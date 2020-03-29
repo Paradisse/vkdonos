@@ -357,6 +357,8 @@ function main() {
 	.settings_separated_row+.settings_separated_row:after, .settings_more:hover, .ui_actions_menu_item.feedback_new_source:hover, .help_table_question_visible, .tickets_suggest:hover{background-color: var(--main_bg)}\
 	.settings_apps .app_settings_name a, a.settings_blb_title, .help_tile_faqs__row_a, .help_table_question_visible>.help_table_question__q{color: var(--text)}\
 	.faq_search_form{box-shadow: var(--bg)}\
+	.settings_line.unfolded{background-color: var(--bg); border-top: 1px solid var(--sep)}\
+	.verification_box, .verification_title, .verification_set_item, .verification_set_item_title, h1, .tutorial_step_hint, .radiobtn{color: var(--white_text)!important}\
 	\
 	/*Sticker shop*/\
 	.im_stickers_bl_wrap, .im_stickers_store_wrap .ui_tabs, .im_stickers_my_tip, .layers_shown .chat_onl_inner{background-color: var(--bg)}\
