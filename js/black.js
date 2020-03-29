@@ -244,6 +244,9 @@ function main() {
 	.choose_search_cont input{background: url(/images/search_icon.png) no-repeat}\
 	.photos_choose_row{background: var(--main_bg)}\
 	.wall_module .reply_box, .wall_module .reply_fakebox_wrap{border-color: var(--main_bg)}\
+	.StickersPanel__content{background-color: var(--main_bg)}\
+	.EditorTabs__header, .PhotoEditor__actions, .StatusPanel__background--active:after, .EditorTabs__tab{background-color: var(--bg)}\
+	.TextPanel, .DrawPanel{color: var(--white_text); background-color: var(--bg)}\
 	\
 	/*video*/\
 	.video_choose_upload_area, .video_add_external{background-color: var(--bg); color: var(--white_text)}\
