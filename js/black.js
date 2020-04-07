@@ -1,11 +1,15 @@
 window.setTimeout(function () {
-	
-	main();
-
+	try {
+		main();
+		delinterval = setInterval(updtime, 60000);
+	} catch (e) {}
 }, 3000)
+
 
 function main() {
 	
+	console.log('ВК был изменён')
+
 	if (document.querySelector('.menu_style_btn') === null) {
 		const btn_style = document.createElement('div');
 		const btn = document.querySelector('.head_nav_item.fl_r');
@@ -57,14 +61,13 @@ function main() {
 	.tt_default, .tt_default_right{border-color: var(--bgg); background: var(--bgg)}
 	.notify_sources_tt_content .line_cell .info, .im-dropbox--msg{ color: var(--white_text)}
 	.ui_actions_menu_item, .im-fwd.im-fwd_msg .im-fwd--messages{color: var(--white_text)}
-	.ui_actions_menu_item:hover, .im-dropbox--rect.dropbox_over, .ui_actions_menu_item.feed_custom_list:hover, .ui_actions_menu_item.feed_new_list:hover{background-color: var(--main_bg)}
-	.ui_actions_menu{background: var(--bgg); border: 1px solid var(--bgg)}
-	.ui_actions_menu_sep{border: 1px solid var(--main_bg)}
-	.feed_list_name_wrap{border-bottom: 1px solid var(--main_bg)}
+	.ui_actions_menu{background-color: var(--main_bg)}
+	.ui_actions_menu_sep, .feed_list_name_wrap, .ui_actions_menu{border-color: var(--main_bg)}
+	.ui_actions_menu_item:hover, .im-dropbox--rect.dropbox_over, .ui_actions_menu_item.feed_custom_list:hover, .ui_actions_menu_item.feed_new_list:hover {background-color: var(--hover)}
 	
-	#top_profile_menu{background: var(--bgg); border-color: var(--bgg)}
+	#top_profile_menu{background: var(--main_bg); border-color: var(--main_bg)}
 	.top_profile_mrow{color: var(--white_color)}
-	.top_profile_sep{border-color: var(--main_bg)}
+	.top_profile_sep{border-color: var(--hover)}
 	
 	.MessageForward__content{background-color: var(--bgg)}
 	.im-create .im-create--tabs, .im-create--table, .im-create--search{background: var(--bg)}
@@ -84,10 +87,12 @@ function main() {
 	#side_bar .more_div, input.BlockSearchInput, .ListItem--active .ListItem__main, .ListItem--can-be-hovered.ListItem--selectable:hover .ListItem__main, .ListItem--active, .ListItem--can-be-hovered.ListItem--selectable:hover{border-color: var(--main_bg)}
 	.nim-dialog .nim-dialog--photo, .online.mobile:after, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_muted.nim-dialog_selected .nim-dialog--photo .online.mobile:after, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_selected .nim-dialog--photo .online.mobile:after, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_hovered .nim-dialog--photo .online.mobile:after, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_unread.nim-dialog_classic .nim-dialog--photo .online.mobile:after, .nim-dialog:not(.nim-dialog_deleted):hover .nim-dialog--photo .online.mobile:after, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_muted.nim-dialog_selected .nim-dialog--photo, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_selected .nim-dialog--photo{border-radius: 0}
 	.nim-dialog.nim-dialog_failed.nim-dialog_muted .nim-dialog--unread, .nim-dialog.nim-dialog_unread.nim-dialog_muted .nim-dialog--unread, .nim-dialog.nim-dialog_unread.nim-dialog_prep-injected.nim-dialog_muted .nim-dialog--unread{background: var(--text)}
-	.medadd_c_linkcon, .ListItem--border:before, .im-chat-input .im-chat-input--text, .im-top-banner{background-color: var(--main_bg)}
+	.medadd_c_linkcon, .ListItem--border:before, .im-chat-input .im-chat-input--text, .im-top-banner, .im-mess.im-mess_was_edited.im-mess_unread.im-mess_nobg, .wddi_no{background-color: var(--main_bg)}
 	.medadd_inline_editable:hover {background-color: #e7ebf0; color: var(--bg)}
-	.Entity__title{color: var(--text)}
-	.Avatar--online:after{border-color: var(--bg)}
+	.Entity__title, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_hovered .nim-dialog--preview.nim-dialog--preview-attach, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_unread.nim-dialog_classic .nim-dialog--preview.nim-dialog--preview-attach, .nim-dialog:not(.nim-dialog_deleted):hover .nim-dialog--preview.nim-dialog--preview-attach{color: var(--text)}
+	.Avatar--online:after, .im-navigation__button{border-color: var(--bg)}
+	.im-navigation__button{box-shadow: rgba(0,0,0,0.7)}
+	.im-navigation--to-end .im-navigation__button{background: var(--bg) url("data:image/svg+xml;charset=utf-8,%3Csvg%20height%3D%227%22%20viewBox%3D%220%200%2014%207%22%20width%3D%2214%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M1.64.232c-.424-.354-1.055-.296-1.408.128s-.296%201.055.128%201.408l6%205c.371.309.91.309%201.28%200l6-5c.424-.354.482-.984.128-1.408s-.984-.482-1.408-.128l-5.36%204.467z%22%20fill%3D%22%239db4cc%22%2F%3E%3C%2Fsvg%3E") center 17px no-repeat}
 
 	/*hyperlink*/
 	.media_link__label{background: var(--main_bg)}
@@ -108,15 +113,17 @@ function main() {
 	.im-create.im-create_classic .im-create--footer{background: var(--bg)}
 	
 	/*feed*/
-	.ui_rmenu_item, .ui_rmenu_subitem, .bookmark_tag{color: var(--text);}
+	.ui_rmenu_sliding .ui_rmenu_slider{background-color: var(--text)}
+	.ui_rmenu_item_sel, .ui_rmenu_item_sel:hover{border-color: var(--text)}
+	.ui_rmenu_item, .ui_rmenu_subitem, .bookmark_tag, .nim-dialog.nim-dialog_typing .nim-dialog--typing, .im-replied--author-link{color: var(--text);}
 	body, a, .feed_update_row .post_author, .right_list_header, .feed_updates .explain, .ui_rmenu_item_sel, .ui_rmenu_item_sel:hover, .eltt .eltt_fancy_action, .reply_submit_hint_opts .radiobtn, .apps_feedRightAppsBlock.apps_feedRightAppsBlock_single_app .apps_feedRightAppsBlock__desc, .poster-uploader__title, .ui_rmenu_subitem.ui_rmenu_item_sel, .ui_rmenu_subitem.ui_rmenu_item_sel:hover, .module_header .header_top, .post_upload_dropbox, .wall_tt, .tt_w, div[contenteditable=true], .ui_gallery_wall_cards .wall_card__title_link, .audio__title_inner, .audio_row__title {color: var(--white_text);}
-	.ui_rmenu_sep, .feed_updates .wall_module .feed_row .post, .poster__open-btn-wrapper, #ads_left.ads_left_empty+.left_menu_nav_wrap, .deep_active .replies .reply_fakebox, .deep_active.wall_module .replies .reply_fakebox, .deep_active.wall_module .wl_replies_block_wrap .reply_fakebox, .deep_active .wl_replies_block_wrap .reply_fakebox, .deep_active .replies .reply_box div.submit_post_field, .deep_active .replies .reply_box div.submit_post_field[contenteditable=true], .deep_active .replies .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active .replies .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .replies .reply_box div.submit_post_field, .deep_active.wall_module .replies .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .replies .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active.wall_module .replies .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .wl_replies_block_wrap .reply_box div.submit_post_field, .deep_active.wall_module .wl_replies_block_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active.wall_module .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active .wl_replies_block_wrap .reply_box div.submit_post_field, .deep_active .wl_replies_block_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active .replies .reply .reply_wrap, .deep_active.wall_module .replies .reply .reply_wrap, .deep_active.wall_module .wl_replies_block_wrap .reply .reply_wrap, .deep_active .wl_replies_block_wrap .reply .reply_wrap, .deep_active .replies .replies_wrap_deep, .deep_active.wall_module .replies .replies_wrap_deep, .deep_active.wall_module .wl_replies_block_wrap .replies_wrap_deep, .deep_active .wl_replies_block_wrap .replies_wrap_deep, #submit_post_box:not(.shown):not(.own_field) .poster__open-btn-wrapper, .olist_item_wrap:hover, .olist_topsh .olist_filter_wrap, .poster__toolbar-wrapper, .post_upload_dropbox_inner, .wall_module .replies_list, .deep_active .replies .replies_wrap_deep .reply_media_preview, .deep_active.wall_module .replies .replies_wrap_deep .reply_media_preview, .deep_active.wall_module .wl_replies_block_wrap .replies_wrap_deep .reply_media_preview, .deep_active .wl_replies_block_wrap .replies_wrap_deep .reply_media_preview, .deep_active .replies .replies_wrap_deep .reply_box_inner_wrap .reply_fakebox, .deep_active.wall_module .replies .replies_wrap_deep .reply_box_inner_wrap .reply_fakebox, .deep_active.wall_module .wl_replies_block_wrap .replies_wrap_deep .reply_box_inner_wrap .reply_fakebox, .deep_active .wl_replies_block_wrap .replies_wrap_deep .reply_box_inner_wrap .reply_fakebox, span.im-to-end__button, .bookmark_footer, .wall_module .replies_side{border-color: var(--main_bg)}
+	.ui_rmenu_sep, .feed_updates .wall_module .feed_row .post, .poster__open-btn-wrapper, #ads_left.ads_left_empty+.left_menu_nav_wrap, .deep_active .replies .reply_fakebox, .deep_active.wall_module .replies .reply_fakebox, .deep_active.wall_module .wl_replies_block_wrap .reply_fakebox, .deep_active .wl_replies_block_wrap .reply_fakebox, .deep_active .replies .reply_box div.submit_post_field, .deep_active .replies .reply_box div.submit_post_field[contenteditable=true], .deep_active .replies .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active .replies .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .replies .reply_box div.submit_post_field, .deep_active.wall_module .replies .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .replies .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active.wall_module .replies .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .wl_replies_block_wrap .reply_box div.submit_post_field, .deep_active.wall_module .wl_replies_block_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active.wall_module .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active.wall_module .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active .wl_replies_block_wrap .reply_box div.submit_post_field, .deep_active .wl_replies_block_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field, .deep_active .wl_replies_block_wrap .wl_reply_form_wrap .reply_box div.submit_post_field[contenteditable=true], .deep_active .replies .reply .reply_wrap, .deep_active.wall_module .replies .reply .reply_wrap, .deep_active.wall_module .wl_replies_block_wrap .reply .reply_wrap, .deep_active .wl_replies_block_wrap .reply .reply_wrap, .deep_active .replies .replies_wrap_deep, .deep_active.wall_module .replies .replies_wrap_deep, .deep_active.wall_module .wl_replies_block_wrap .replies_wrap_deep, .deep_active .wl_replies_block_wrap .replies_wrap_deep, #submit_post_box:not(.shown):not(.own_field) .poster__open-btn-wrapper, .olist_item_wrap:hover, .olist_topsh .olist_filter_wrap, .poster__toolbar-wrapper, .post_upload_dropbox_inner, .wall_module .replies_list, .deep_active .replies .replies_wrap_deep .reply_media_preview, .deep_active.wall_module .replies .replies_wrap_deep .reply_media_preview, .deep_active.wall_module .wl_replies_block_wrap .replies_wrap_deep .reply_media_preview, .deep_active .wl_replies_block_wrap .replies_wrap_deep .reply_media_preview, .deep_active .replies .replies_wrap_deep .reply_box_inner_wrap .reply_fakebox, .deep_active.wall_module .replies .replies_wrap_deep .reply_box_inner_wrap .reply_fakebox, .deep_active.wall_module .wl_replies_block_wrap .replies_wrap_deep .reply_box_inner_wrap .reply_fakebox, .deep_active .wl_replies_block_wrap .replies_wrap_deep .reply_box_inner_wrap .reply_fakebox, span.im-to-end__button, .bookmark_footer, .wall_module .replies_side, .apps_feedRightAppsBlockFriendsList__imgWrap{border-color: var(--main_bg)}
 	.ui_rmenu_item_sel, .ui_rmenu_item_sel:hover{background: none;}
 	.top_notify_countб .top_nav_btn:hover .top_notify_count, .post_suggest, .submit_post, .post_actions_btns, .deep_active .post_replies_header, .deep_active.wall_module .post_replies_header{border-color: var(--bgg)}
 	.stl_active.over_fast #stl_bg, .submit_post, .wall_module .reply_box, .wall_module .reply_fakebox_wrap, .deep_active .replies .reply_fakebox, .deep_active.wall_module .replies .reply_fakebox, .deep_active.wall_module .wl_replies_block_wrap .reply_fakebox, .deep_active .wl_replies_block_wrap .reply_fakebox, .wall_module .reply_form, .deep_active .replies .reply_field_wrap .reply_field, .deep_active .replies .wl_reply_form_wrap .reply_field_wrap .reply_field, .deep_active.wall_module .replies .reply_field_wrap .reply_field, .deep_active.wall_module .replies .wl_reply_form_wrap .reply_field_wrap .reply_field, .deep_active.wall_module .wl_replies_block_wrap .reply_field_wrap .reply_field, .deep_active.wall_module .wl_replies_block_wrap .wl_reply_form_wrap .reply_field_wrap .reply_field, .deep_active .wl_replies_block_wrap .reply_field_wrap .reply_field, .deep_active .wl_replies_block_wrap .wl_reply_form_wrap .reply_field_wrap .reply_field, .poster__toolbar, .poster__slider-arrow:hover, .post_upload_dropbox.dropbox_over .post_upload_dropbox_inner, .search_filters_minimized_text, .post_upload_dropbox, .im-to-end:focus .im-to-end__button, .im-to-end:hover .im-to-end__button, .wall_module .like_tt_bottom_page_friend_reply, .bookmark_footer, .wall_module .replies_side{background-color: var(--bg)}
 	#stl_text, .post_suggest .post_suggest__action_text, .wall_module a.wall_reply_greeting, .deep_active .post_replies_header .post_replies_reorder, .deep_active.wall_module .post_replies_header .post_replies_reorder, .reply_submit_hint_title, .feed_new_posts, .ui_tabs_box .ui_tab_sel .ui_tab_count, .Post__copyrightButton, .poster__new-bkg-btn-layout, .wall_module .replies_open, .wall_module .wr_header, .wall_module .media_desc .a{color: var(--text)}
 	.post_suggest:after, .post_suggest:before, .like_cont, .poster__settings-btn-wrapper{border: none}
-	.deep_active .replies .replies_wrap_deep .replies_deep_collapse:before, .deep_active.wall_module .replies .replies_wrap_deep .replies_deep_collapse:before, .deep_active.wall_module .wl_replies_block_wrap .replies_wrap_deep .replies_deep_collapse:before, .deep_active .wl_replies_block_wrap .replies_wrap_deep .replies_deep_collapse:before, .eltt .eltt_fancy_action:hover, .feed_new_posts:hover, .olist_item_wrap:hover, .poster__slider-arrow, .Post__copyrightButton:hover, .poster-uploader__drop-box:hover, .poster__change-bkg-btn, .ui_toggler.on, .ui_toggler, .post_upload_dropboxs, .wall_module .replies_open, .wall_module .wr_header, .tabbed_box .summary_tab .summary_tab3:hover, .tabbed_box .summary_tab_sel .summary_tab3:hover, .tabbed_box .summary_tab_sel a:hover, .tabbed_box .summary_tab a:hover, span.im-to-end__button, .ui_actions_menu_sublist .ui_actions_menu_item.checked:hover, .checkbox+.Post__copyrightButton:after, .wall_module .replies_side:hover{background-color: var(--main_bg)}
+	.deep_active .replies .replies_wrap_deep .replies_deep_collapse:before, .deep_active.wall_module .replies .replies_wrap_deep .replies_deep_collapse:before, .deep_active.wall_module .wl_replies_block_wrap .replies_wrap_deep .replies_deep_collapse:before, .deep_active .wl_replies_block_wrap .replies_wrap_deep .replies_deep_collapse:before, .eltt .eltt_fancy_action:hover, .feed_new_posts:hover, .olist_item_wrap:hover, .poster__slider-arrow, .Post__copyrightButton:hover, .poster-uploader__drop-box:hover, .poster__change-bkg-btn, .ui_toggler.on, .ui_toggler, .post_upload_dropboxs, .wall_module .replies_open, .wall_module .wr_header, .tabbed_box .summary_tab .summary_tab3:hover, .tabbed_box .summary_tab_sel .summary_tab3:hover, .tabbed_box .summary_tab_sel a:hover, .tabbed_box .summary_tab a:hover, span.im-to-end__button, .ui_actions_menu_sublist .ui_actions_menu_item.checked:hover, .checkbox+.Post__copyrightButton:after, .wall_module .replies_side:hover, .im-replied:before{background-color: var(--main_bg)}
 	.eltt{background-color: var(--bg); border-color: var(--bg)}
 	.apps_feedRightAppsBlock__name{color: var(--mark)}
 	.post_top_info_wall_event, .post_top_info_wall_group, .post_top_info_wall_guide, .post_top_info_wall_mention, .post_top_info_wall_podcast, .post_top_info_wall_poll_vote, .post_top_info_wall_reply, .post_top_info_wall_vkgo, .poster__slider-arrow._right, .poster__slider-arrow._left{box-shadow: var(--main_bg)}
@@ -134,19 +141,22 @@ function main() {
 	.ui_rmenu_item:hover, .ui_rmenu_item_sel, .ui_rmenu_item_sel:hover, .ui_rmenu_subitem:hover{background-color: var(--main_bg)}
 	
 	/*minidialog*/
-	.fc_tab_head{background-color: #000; border: 1px solid var(--one_bg)}
+	.fc_tab, div.fc_tab_txt {background-color: var(--bgg); border-color: var(--bgg)}
+	.fc_tab_head{background-color: var(--bgg); border-color: var(--bgg)}
 	#fc_contacts, .fc_content{background: var(--one_bg)}
 	#fc_ctabs_cont{border: none}
+	.fc_msgs, .fc_msgs_out .fc_msgs{background-color: var(--main_bg); border-color: var(--main_bg)}
 	div.fc_clist_filter_wrap{background: var(--one_bg); border-top: none}
-	.fc_tab_pointer:after{border-left-color: var(--white_text)}
-	a.fc_contact_over, .fc_tab, div.fc_tab_txt, .ms_items_more{background: var(--one_bg); border: none;}
+	a.fc_contact_over, .ms_items_more{background-color: var(--main_bg); border-color: var(--main_bg);}
 	span.fc_contact_photo.online.mobile:after, a.fc_contact_over span.fc_contact_photo.online.mobile:after{background-color: var(--one_bg)}
 	span.fc_contact_photo.online:after, a.fc_contact_over span.fc_contact_photo.online:after{border: var(--one_bg)}
-	.fc_msgs, .fc_msgs_out .fc_msgs, .media_selector .ms_items_more .ms_item:hover{background-color: var(--main_bg); border: none}
-	.fc_tab_notify{background-color: var(--main_bg); border: 1px solid var(--main_bg)}
+	.fc_msgs_out .fc_msgs, .media_selector .ms_items_more .ms_item:hover{background-color: var(--hover)}
+	.fc_tab_notify, #mail_box_editable{background-color: var(--main_bg); border: 1px solid var(--main_bg)}
 	.fakeinput:focus, div[contenteditable=true]:focus, input.big_text:focus, input.dark:focus, input.search:focus, input.text:focus, textarea:focus{border-color: var(--main_bg)}
 	.chat_cont_sh_bottom, .chat_cont_sh_top{background: linear-gradient(180deg, rgba(216,223,230,0), var(--main_bg) 80%)}
-	.fc_msgs_unread, .chat_tab_typing_wrap{background-color: var(--bg)}
+	.fc_msgs_unread, .chat_tab_typing_wrap, .mail_box_cont{background-color: var(--bg)}
+	.fc_contact_name, .mail_box_label_peer{color: var(--text)}
+	#mail_box_editable{color: var(--white_text)}
 	
 	/*smiles*/
 	.emoji_tt_wrap{background-color: var(--bg); border: 1px solid var(--main_bg)}
@@ -291,7 +301,7 @@ function main() {
 	rect#rect-0, path#empty-0, path#b-0, path#r-0, path#l-0, path#t-0, path#lt-0, path#lb-0, path#rb-0, path#rt-0, path#n_lt-0, path#n_lb-0, path#n_rt-0, path#n_rb-0, path#point-0{fill: var(--white_text)}
 	
 	/*Уведомления*/
-	.feedback_row, .feedback_sticky_row, .top_notify_cont .top_notify_header, #top_notify_wrap, .top_notify_show_all, .flist_item_wrap, .flist_item_wrap:hover, .page_block #all_shown, .feedback_row_clickable:not(.feedback_row_touched):hover, .feed_row~.feed_row .feedback_row_clickable:not(.feedback_row_touched):hover, .bd_row{border-color: var(--main_bg)}
+	.feedback_row, .feedback_sticky_row, .top_notify_cont .top_notify_header, #top_notify_wrap, .top_notify_show_all, .flist_item_wrap, .flist_item_wrap:hover, .page_block #all_shown, .feed_row~.feed_row .feedback_row_clickable:not(.feedback_row_touched):hover, .bd_row{border-color: var(--main_bg)}
 	.feedback_row_wrap.unread:not(.feedback_row_touched), .top_notify_cont .top_notify_header, #top_notify_wrap, .top_notify_show_all{background-color: var(--bg)}
 	.top_notify_cont .feedback_header, .feedback_header b, .top_notify_cont .top_notify_header, .top_notify_header, .feedback_header, .wall_reply_text{color: var(--white_text)}
 	.feedback_header .author, .feedback_header .group_link, .feedback_header .mem_link{color: var(--text)}
@@ -303,7 +313,7 @@ function main() {
 	.article_ed_layer .article_ed_layer__header .article_ed_layer__publish{color: var(--text)}
 	.article_ed_layer .article_ed_layer__list_item .article_ed_layer__list_item_title{color: var(--white_text)}
 	.article_ed_layer .article_ed_layer__publish_settings .article_ed_layer__publish_settings_header{border-color: var(--main_bg)}
-	.article_ed_layer .article_ed_layer__list_item:not(.article_ed_layer__list_item--selected):hover, .article_ed_layer .article_ed_layer__list_item.article_ed_layer__list_item--selected, .page_actions_item:hover:not(.grey_hoverable), .top_profile_mrow:hover, .ui_tabs .ui_tab_group_item:hover{background-color: var(--main_bg)}
+	.article_ed_layer .article_ed_layer__list_item:not(.article_ed_layer__list_item--selected):hover, .article_ed_layer .article_ed_layer__list_item.article_ed_layer__list_item--selected, .page_actions_item:hover:not(.grey_hoverable), .top_profile_mrow:hover, .ui_tabs .ui_tab_group_item:hover{background-color: var(--hover)}
 	
 	/*Your profile*/
 	.page_name, h1.page_name, .profile_warning_row, .page_actions_cont.narrow .page_actions_header_inner, .box_grey .box_title .divider:before, .box_grey .box_title .tab_link, .box_grey .box_title .toggle, .box_grey .box_title .toggle a, .wall_module .ui_tabs .ui_tab_group_sel, .ui_tabs .ui_tab_group_item{color: var(--white_text)}
@@ -315,15 +325,16 @@ function main() {
 	.profile_msg_split .profile_btn_cut_right, .profile_msg_split .profile_btn_cut_left{border-color: var(--bg)}
 	
 	/*Your group*/
-	.ui_tab_default .ui_tab_plain, .gtop_complex_message .gtop_content .gtop_header, .page_market_item_title, .gtop_complex_message .gtop_content .gtop_message, .public_help_block, input#group_edit_addr, #groups_menu_promo .apps_group_catalog_promo_header, .groups_edit_chats .groups_chats_promo .apps_group_catalog_promo_header, #groups_apps_catalog_promo .apps_group_catalog_promo_header, .apps_group_catalog_header .apps_group_catalog_header_desc .apps_group_catalog_header_desc_text, .ui_tooltipMenu__link, ul.listing li span, .groups_cover_box .groups_edit_cover_header .groups_edit_cover_header_title, .groups_cover_box .groups_edit_cover_wrap .groups_edit_cover_wrap_desc, .stats_cont_browse_tile, #stats_cont h4, .stats_head, #group_section_menu .module_body .ui_gallery .ui_gallery_item .groups_menu_item .groups_menu_item_title, .media_voting_question, .media_voting_option_text, .media_voting_option_count, .media_voting_option_percent, .audio_pl_snippet2 .audio_shuffle_all_button, .audio_pl_snippet2 .audio_pl_snippet__info_author .group_link, .app_widget_table_td, .app_widget_table_th{color: var(--white_text)}
+	.ui_tab_default .ui_tab_plain, .gtop_complex_message .gtop_content .gtop_header, .page_market_item_title, .gtop_complex_message .gtop_content .gtop_message, .public_help_block, input#group_edit_addr, #groups_menu_promo .apps_group_catalog_promo_header, .groups_edit_chats .groups_chats_promo .apps_group_catalog_promo_header, #groups_apps_catalog_promo .apps_group_catalog_promo_header, .apps_group_catalog_header .apps_group_catalog_header_desc .apps_group_catalog_header_desc_text, .ui_tooltipMenu__link, ul.listing li span, .groups_cover_box .groups_edit_cover_header .groups_edit_cover_header_title, .groups_cover_box .groups_edit_cover_wrap .groups_edit_cover_wrap_desc, .stats_cont_browse_tile, #stats_cont h4, .stats_head, #group_section_menu .module_body .ui_gallery .ui_gallery_item .groups_menu_item .groups_menu_item_title, .media_voting_question, .media_voting_option_text, .media_voting_option_count, .media_voting_option_percent, .audio_pl_snippet2 .audio_shuffle_all_button, .audio_pl_snippet2 .audio_pl_snippet__info_author .group_link, .app_widget_table_td, .app_widget_table_th, .app_widget_text_content, .market_album_name_link, .microdata_price{color: var(--white_text)}
 	.group_friends_image, .group_u_photo.online:after{border-color: var(--bg)}
 	.bt_header, .bp_post, #gtop_first_post_to_wall, .prefix_input_border, .prefix_input:focus+.prefix_input_border, .group_edit_row_sep, .groups_api_divider, .gedit_block_footer, .group_l_row:last-child, .group_l_row, .apps_group_catalog_header, .apps_group_catalog_rows .apps_catalog_row, .community_apps_catalog_type_tabs.ui_tabs_header, .groups_edit_event_log_page .groups_edit_event_log_controls, .groups_edit_event_log_page .groups_edit_event_log_items_wrap, .groups_edit_event_log_page .groups_edit_event_log_items_wrap .groups_edit_event_log_item_wrap, .groups_cover_box .groups_edit_cover_header, .stats_browse_filter, #stats_cont h4, .stats_head, .piechart_table tr td, .stats_community_messages_info, .post_publish, .stories_groups_block_stories_wrap .stories_groups_block_stories_row, .post_friend_liked, .module_header.header_separated{border-color: var(--main_bg)}
-	.blst_title, .blst_mem, .group_info_rows_redesign .group_info_row.onboarding_placeholder .line_value .line_div_value.empty, .page_actions_dd_label, .page_actions_header_inner, .group_edit_labeled .idd_wrap .idd_selected_value, a.group_l_title, a.group_u_title, .wk_header, .group_settings_advice a, .groups_edit_event_log_page .groups_edit_event_log_controls, .groups_edit_event_log_page .groups_edit_event_log_filter .ui_tooltipMenu__current, .ui_ownblock_label, .page_photo.page_action_menu_groups .page_actions_item.group_send_msg_status_block .group_send_msg_status_block_title, .stories_groups_block_stories_empty .page_module_upload, .summary_tab3, .wk_voting_menu{color: var(--text)}
+	.blst_title, .blst_mem, .group_info_rows_redesign .group_info_row.onboarding_placeholder .line_value .line_div_value.empty, .page_actions_dd_label, .page_actions_header_inner, .group_edit_labeled .idd_wrap .idd_selected_value, a.group_l_title, a.group_u_title, .wk_header, .group_settings_advice a, .groups_edit_event_log_page .groups_edit_event_log_controls, .groups_edit_event_log_page .groups_edit_event_log_filter .ui_tooltipMenu__current, .ui_ownblock_label, .page_photo.page_action_menu_groups .page_actions_item.group_send_msg_status_block .group_send_msg_status_block_title, .stories_groups_block_stories_empty .page_module_upload, .summary_tab3, .wk_voting_menu, .thumbed_link__title{color: var(--text)}
 	.blst_last:hover, .group_info_rows_redesign .group_info_row.onboarding_placeholder .line_value.line_edit, .group_info_rows_redesign .group_info_row.onboarding_placeholder .line_value:hover, .group_api_url_desc, .ui_tooltipMenu__link:hover, .groups_edit_event_log_page .groups_edit_event_log_items_wrap .groups_edit_event_log_item_wrap:hover>.groups_edit_event_log_item_main, .groups_edit_event_log_page .groups_edit_event_log_items_wrap .groups_edit_event_log_item_wrap_focused, .ui_ownblock:hover, .groups_cover_box .groups_edit_cover_wrap .groups_edit_cover_wrap_live .groups_edit_cover_wrap_live_previews .groups_edit_cover_wrap_live_upload .groups_edit_cover_wrap_live_upload_placeholder_disabled, .groups_cover_box .groups_edit_cover_wrap .groups_edit_cover_wrap_live .groups_edit_cover_wrap_live_previews .groups_edit_cover_wrap_live_upload .groups_edit_cover_wrap_live_upload_placeholder_enabled:hover, .stats_cont_browse_tile, .stats_cont_browse_tile .stats_cont_browse_tile_desc, .piechart_col_header th, .media_voting, .summary_tab2:hover, .audio_pl_snippet2 .audio_shuffle_all_button:hover{background-color: var(--main_bg)}
 	.prefix_input_wrap, .gedit_block_footer, .group_l_row, .community_apps_catalog_type_tabs.ui_tabs_header, .groups_edit_event_log_page .groups_edit_event_log_controls, .groups_edit_event_log_page .groups_edit_event_log_items_wrap .groups_edit_event_log_item_counter, .groups_cover_box .groups_edit_cover_header, #stats_cont.stats_cont_browse{background-color: var(--bg)}
 	.media_voting_option{background-color: var(--btn)}
 	.media_voting_can_vote.media_voting_clickable_option .media_voting_option_wrap:not(.media_voting_option_selected):hover .media_voting_option, .media_voting_option_leader .media_voting_option_bar, .media_voting_option_bar, .wk_voting_option_bar_inner{background-color: var(--mark)}
 	.media_voting{box-shadow: var(--main_bg)}
+	.group_info_rows_redesign .group_info_row.time .address_time_status_cur_time{color: var(--good_mark)}
 	
 	/*Friends&groups&videos*/
 	.ui_tabs_header, .page_block_header {background-color: var(--bg)}
@@ -341,14 +352,17 @@ function main() {
 	
 	/*Music*/
 	.audio_page_player2 .audio_page_player_title_song, .audio_page_layout .audio_blocks .recoms_special_block_title, .audio_page_layout .audio_section .recoms_special_block_title, .audio_pl_item2 .audio_pl__subtitle>a, .audio_row .audio_row__position, .audio_page__shuffle_all .audio_page__shuffle_all_button, .audio_subscribe_promo__title, .audio_subscribe_promo__text, .audio_pl_snippet2 .audio_pl_snippet__artist_link{color: var(--white_text)}
-	.audio_page_layout .audio_item__title, .audio_page_layout .audio_item__title>a, ._audio_section__search .audio_row.audio_has_lyrics .audio_row__title_inner, .ap_layer__content .audio_row.audio_has_lyrics .audio_row__title_inner, .audio_page__audio_rows .audio_row.audio_has_lyrics .audio_row__title_inner, .audio_section_global_search__audios_block .audio_row.audio_has_lyrics .audio_row__title_inner, .audio_pl_snippet2 .audio_pl_snippet__info_title{color: var(--text)}
+	.audio_page_layout .audio_item__title, .audio_page_layout .audio_item__title>a, ._audio_section__search .audio_row.audio_has_lyrics .audio_row__title_inner, .ap_layer__content .audio_row.audio_has_lyrics .audio_row__title_inner, .audio_page__audio_rows .audio_row.audio_has_lyrics .audio_row__title_inner, .audio_section_global_search__audios_block .audio_row.audio_has_lyrics .audio_row__title_inner, .audio_pl_snippet2 .audio_pl_snippet__info_title, .audio_row__more_actions .audio_row__more_action{color: var(--text)}
 	.page_block._audio_page_content_block:before, .audio_page_layout .audio_block:before{box-shadow: var(--bg)}
-	.audio_page_layout .audio_search_wrapper, .audio_page_player2.audio_page_player_fixed, .audio_row.audio_row__current .audio_row_content, input#audio_friends_search, .audio_page_layout .audio_friends_list, .audio_pl_edit_box .ape_header, .audio_pl_edit_box .ape_list_header, .audio_pl_edit_box .ape_cover,.audio_layer_container .audio_page_player_wrap, .audio_pl_snippet2, .ap_layer_wrap .ap_layer__content{background-color: var(--bg)}
-	.audio_page__shuffle_all .audio_page__shuffle_all_button:hover, .audio_pl_edit_box .ape_add_audios_btn:hover, .audio_pl_edit_box .ape_add_pl_audios_btn:hover, .audio_layer_container .audio_friend:hover{background-color: var(--main_bg)}
+	.audio_page_layout .audio_search_wrapper, .audio_page_player2.audio_page_player_fixed, .audio_row.audio_row__current .audio_row_content, input#audio_friends_search, .audio_page_layout .audio_friends_list, .audio_pl_edit_box .ape_header, .audio_pl_edit_box .ape_list_header, .audio_pl_edit_box .ape_cover,.audio_layer_container .audio_page_player_wrap, .audio_pl_snippet2, .ap_layer_wrap .ap_layer__content, .CatalogBlock--divided, .CatalogSection{background-color: var(--bg)}
+	.audio_page__shuffle_all .audio_page__shuffle_all_button:hover, .audio_pl_edit_box .ape_add_audios_btn:hover, .audio_pl_edit_box .ape_add_pl_audios_btn:hover, .audio_layer_container .audio_friend:hover, .audio_row__more_actions .audio_row__more_action:hover{background-color: var(--main_bg)}
 	.audio_page_layout .has_friends_block .audio_page__rows_wrap, .audio_feed_post, .audio_pl_edit_box .ape_header, .audio_pl_edit_box .ape_add_audios_btn, .audio_pl_edit_box .ape_add_pl_audios_btn, .audio_pl_edit_box .ape_cover, .audio_layer_container .audio_page__footer, .audio_pl_snippet2 .audio_pl_snippet__header, div[contenteditable=true], .wdd_list, .wddi, .wddi_over, .like_share_ava.wdd_imgs .wdd_img_full, .like_share_ava.wdd_imgs .wdd_img_half, .like_share_ava.wdd_imgs .wdd_img_tiny, .audio_subscribe_promo{border-color: var(--main_bg)}
 	.audio_layer_container .audio_page_player_wrap{border-color: var(--main_bg)!important}
 	.audio_restriction_box__title{color: var(--white_text)} .audio_page_separator{background-color: var(--sep)!important}
-	
+	.CatalogBlock--divided:before, .CatalogSection:before{box-shadow: var(--bg)}
+	.ui_search_new.ui_search_dark .ui_search_button_search{background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20height%3D%2224%22%20viewBox%3D%221284%20207%2024%2024%22%20width%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m1298.5%20222.9c-1%20.7-2.2%201.1-3.5%201.1-3.3%200-6-2.7-6-6s2.7-6%206-6%206%202.7%206%206c0%201.3-.4%202.5-1.1%203.5l2.8%202.7c.3.4.4%201.1%200%201.5-.4.3-1.1.3-1.5%200zm-3.5-.9c2.2%200%204-1.8%204-4s-1.8-4-4-4-4%201.8-4%204%201.8%204%204%204z%22%20fill%3D%22%239CAAB9%22%2F%3E%3C%2Fsvg%3E") var(--main_bg) no-repeat 50%}
+
+
 	/*Setting*/
 	.pedit_separator, .settings_line, .settings_block_footer, .settings_privacy_row, .settings_bl_row, .settings_apps .apps_settings_row_wrap, .settings_block_msg, .settings_table_row, .settings_history_table tr td, .settings_blb_row, .settings_more, .settings_blb_row:last-child, .settings_more:hover, .ui_tabs, .help_table_question, .help_table_questions, .tickets_suggests_wrap, .tickets_suggest{border-color: var(--main_bg)}
 	.settings_block_footer, .settings_blb_row, .faq_tabs.ui_tabs, .tickets_suggests_wrap{background-color: var(--bg)}
@@ -399,16 +413,27 @@ function main() {
 	.app_link, .header_side_link, .header_side_link a{color: var(--text)}
 	.ui_tab_group_separator{border-color: var(--main_bg)}
 	
+	/*Login*/
+	.login_page #footer_wrap, .index_page .index_footer_wrap, .bottom_row, .footer_wrap, .join_finish_page #footer_wrap{border-color: var(--main_bg)}
+	.bottom_row{background-color: var(--bg)}
+	.bottom_row{color: var(--white_text)}
+
+
 	/*DONOS*/
-	
+	.save_button_donos.feedback_row:hover{background-color: var(--main_bg)}
+	.top_nav_btn_icon, .s_btn, .left_icon.fl_l, #stl_text{filter: contrast(0) brightness(1.5)}
 	
 	/*UPDATE*/
-// div#page_avatar{background-image: url("https://i.imgur.com/LI22hN0.png"); width: 600px}
 	.pv_cont .pv_closed_commments_placeholder{background-image: url("https://i.imgur.com/IMydyAG.png")}
 	.no_posts_cover{background-image: url(https://i.imgur.com/ll6LrUq.png)}
 	.im-page .im-page--center-empty{background: url(https://i.imgur.com/zSxzsLb.png) 60px 0px no-repeat}
-	.feedback_img:after, .im_grid>img:after, .nim-peer--photo>img:after, img[src*="/images/dquestion_i"], img[src*="/images/camera_"], [style*="/images/camera_"] {    background: url(https://i.imgur.com/LI22hN0.png) -6px no-repeat; background-size: 55px;}
-	
+	.feedback_img:after, .im_grid>img:after, .nim-peer--photo>img:after, img[src*="/images/dquestion_i"], [style*="/images/camera_"] {background: url(https://i.imgur.com/LI22hN0.png) -6px no-repeat; background-size: 55px;}
+	img[src*="/images/camera_"]{filter: invert(0.93)}
+	.nim-dialog:not(.nim-dialog_deleted).nim-dialog.nim-dialog_selected:hover:before, .nim-dialog:not(.nim-dialog_deleted).nim-dialog:hover:before, .nim-dialog._im_dialog:hover:before, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_muted.nim-dialog_selected:before, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_selected:before{position: absolute; content: ""; left: 0px; transform: translate(-4px, 20px); border: 10px solid transparent; border-left-color: var(--white_text)}
+	#side_bar ol li .left_row:hover:before {position: absolute; content: ""; transform: translate(-6px, 8px); border: 6px solid transparent; border-left-color: var( --white_text)}
+	img[src*="/images/pics/spamfight.gif"]{filter: invert(0.9) grayscale(1)}
+	img[src*="/images/deactivated_"]{filter: invert(0.98)}
+	a#ads_ad_box2_ad_e65925ae5f0d5bbb{display:none}
 	`
 }
 
@@ -444,6 +469,11 @@ function menu_color_style() {
 			<span>HEX номер цвета (альфа)</span>
 			<input type="text" id="t1"><br>
 			<button class="btn_accept">Принять цвет</button> <button class="btn_remove">Сбросить</button><br>
+			<button class="btn_time_bg"></button>
+
+			<div class="updates">
+				<span>Добавлено в:\n<p class="version">v1.5.0.6</p></span>
+			</div>
 		</div>
 	</div>`); 
 
@@ -451,7 +481,10 @@ function menu_color_style() {
 		document.querySelector('.btn_deactiveted').className += ' active'
 		document.querySelector('.boll').className += ' active'
 	}
-
+	if (get_date()['bg_mode'] === true){
+		document.querySelector('.btn_time_bg').className += ' active'
+	}
+	document.querySelector('.btn_time_bg').innerText = 'Режим: '+get_date()['bg_mode']	
 }
 
 function funintp(){
@@ -522,6 +555,12 @@ window.addEventListener('input', function (event) {	// Настройка цве
 	if (event.target.id === 'c1' || event.target.id === 'c2' || event.target.id === 'c3' || event.target.id === 't1'){
 		funintp();
 	}
+
+	document.onkeydown = function(e) {
+	    if (e.altKey && e.keyCode == 86) {
+	    	event.target.innerText = event.target.innerText.engForrus()
+	    }
+	}
 });
 
 window.addEventListener('click', function(event) {
@@ -529,6 +568,8 @@ window.addEventListener('click', function(event) {
 	const btn_menu = document.querySelector('.menu_style_btn');
 	const menu_style = document.querySelector('.menu_style');
     const body = document.body;
+	const styles = document.querySelector('.style_theme');
+
 
 	if (event.target.className === 'menu_style_btn') {
 		menu_color_style();
@@ -572,7 +613,6 @@ window.addEventListener('click', function(event) {
 		}
 		btn_bool = true;
 
-		const styles = document.querySelector('.style_theme');
 		styles.remove()
 	} else if (event.target.className === 'btn_deactiveted active' || event.target.className === 'boll active') {
 		if (event.target.lastElementChild == null){
@@ -605,8 +645,39 @@ window.addEventListener('click', function(event) {
 		document.querySelector('#unk').innerText = event.target.innerText
 	}
 
+	if (event.target.className === 'btn_time_bg'){
+		save_date(true)
+		event.target.className += ' active'
+		delinterval = setInterval(updtime, 60000);
+		event.target.innerText = 'Режим: ' +get_date()['bg_mode']
+	} else if(event.target.className === 'btn_time_bg active') {
+		save_date(false)
+		event.target.className = 'btn_time_bg'
+		event.target.innerText = 'Режим: ' +get_date()['bg_mode']
+		clearInterval(delinterval);	
+	}
+
+	if (event.target.className === 'version'){
+		alert('Пока что не написано')
+	}
+
 });
 
+function updtime(){
+	const styles = document.querySelector('.style_theme');
+	let time = document.lastModified.split(' ')[1].split(':')
+	let hour = parseInt(time[0])
+	let min = parseInt(time[1])
+	if ((hour >= 21 && min >= 0) || (hour <= 8 && min >= 0)){
+		if (!styles){main()}
+		// console.log('темень')
+	} else if(hour >= 8 && min >= 0){
+		// console.log('light')
+		try{
+			styles.remove()
+		} catch (e){}
+	}
+}
 
 function select_color(){
 	const hex = document.querySelectorAll('.conteiner_style span')[1].innerText.split('\nhex(')[1].split(')')[0]
@@ -623,6 +694,42 @@ function select_color(){
 
 }
 
+String.prototype.engForrus = function() {
+	let rus = ['й','ц','у','к','е','н','г','ш','щ','з','х','ъ','ф','ы','в','а','п','р','о','л','д','ж','э','я','ч','с','м','и','т','ь','б','ю', 'Й','Ц','У','К','Е','Н','Г','Ш','Щ','З','Х','Ъ','Ф','Ы','В','А','П','Р','О','Л','Д','Ж','Э','Я','Ч','С','М','И','Т','Ь','Б','Ю','ё','Ё']
+	let eng = ['q','w','e','r','t','y','u','i','o','p','[',']','a','s','d','f','g','h','j','k','l',';',"'",'z','x','c','v','b','n','m',',','.', 'Q','W','E','R','T','Y','U','I','O','P','[',']','A','S','D','F','G','H','J','K','L',':','"','Z','X','C','V','B','N','M','<','>','`','~']
+	let n_russ = ''	
+	let ff = ''
+	for (var i = 0; i <= (this.length - 1); i++) {
+		n_russ = eng.indexOf(this[i], 0)
+		switch(n_russ) {
+			case n_russ : if (rus[n_russ] == undefined) {
+					ff += ' '}
+				else{
+					ff += rus[n_russ]}
+			break;
+		}
+	}
+	return ff
+}
+
+function get_date() {
+	let save_name = 'Цвет фона'	
+	return JSON.parse (localStorage.getItem (save_name));	
+}
+
+function save_date(mode=false) {
+	try {
+		let your_id = document.scripts[document.scripts.length - 1].innerHTML.split('handlePageParams({"id":')[1].split(',"leftblocks"')[0]
+		let save_name = 'Цвет фона'
+		var save_object = {
+			user_id : your_id, 
+			bg_mode : mode, 
+			bg : null
+		}
+
+		localStorage.setItem(save_name, JSON.stringify(save_object));	
+	} catch(e){}
+}
 
 one_bg = '#0d0e0d'
 bg = '#191b19'
@@ -636,3 +743,4 @@ bgg = '#111111'
 white_text = '#dee3e7'
 btn = '#4779bd'
 sep = '#414141'
+hover = '#3c3e3c'
