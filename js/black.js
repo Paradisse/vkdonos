@@ -481,12 +481,12 @@ function menu_color_style() {
 					<span class="span_hex">HEX: #</span>
 					<input type="text" id="t1" placeholder="Введите цвет">
 					
-					<div class="des_hex">Hex - напиши описание</div>
+					<div class="des_hex">Ручное изменение цвета в восьмеричной кодировке</div>
 
 				</div>
 				<div class="mode">
 					<span class="span_mode">Режим: </span><button class="btn_time_bg"></button>
-					<div class="des_mode">Режим - напиши описание</div>
+					<div class="des_mode">Смена темы по времени (день/ночь)</div>
 				</div>
 				<div class="buttons">
 					<button class="btn_accept">Принять цвет</button> <button class="btn_remove">Сбросить</button>
