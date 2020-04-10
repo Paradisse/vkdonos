@@ -1,7 +1,15 @@
 window.setTimeout(function () {
 	try {
-		main();
-		delinterval = setInterval(updtime, 60000);
+		if (localStorage.getItem('Цвет фона') != null){
+			if (get_date()['bg_mode'] === 'on'){
+				delinterval = setInterval(updtime, 60000);
+			}
+			main()
+		}
+		else {
+			save_date()
+			main()
+		}
 	} catch (e) {}
 }, 3000)
 
@@ -420,8 +428,7 @@ function main() {
 
 
 	/*DONOS*/
-	.save_button_donos.feedback_row:hover{background-color: var(--main_bg)}
-	.top_nav_btn_icon, .s_btn, .left_icon.fl_l, #stl_text{filter: contrast(0) brightness(1.5)}
+	.top_nav_btn_icon, .menu_style_btn, .left_icon.fl_l, #stl_text{filter: contrast(0) brightness(1.5)}
 	
 	/*UPDATE*/
 	.pv_cont .pv_closed_commments_placeholder{background-image: url("https://i.imgur.com/IMydyAG.png")}
@@ -458,33 +465,59 @@ function menu_color_style() {
 				<li id="n_">Фон диалога</li>
 				<li id="n_">Текст</li>
 				<li id="n_">Ссылки</li>
+				<li id="n_">Donos</li>
 			</ul>
 			</div></h2>
 			<br>
 			<hr>
-			<span>Значение</span><br>
-			<input type="range" id="c1" min="0" max="255" value="0">
-			<input type="range" id="c2" min="0" max="255" value="0">
-			<input type="range" id="c3" min="0" max="255" value="0"><br>
-			<span>HEX номер цвета (альфа)</span>
-			<input type="text" id="t1"><br>
-			<button class="btn_accept">Принять цвет</button> <button class="btn_remove">Сбросить</button><br>
-			<button class="btn_time_bg"></button>
+			<div class="menu">
+				<div class="colorpicker_polz">
+					<span class="span_menu">Значение</span>
+					<input type="range" id="c1" min="0" max="255" value="0">
+					<input type="range" id="c2" min="0" max="255" value="0">
+					<input type="range" id="c3" min="0" max="255" value="0">
+				</div>
+				<div class="colorpicker_hex">
+					<span class="span_hex">HEX: #</span>
+					<input type="text" id="t1" placeholder="Введите цвет">
+					
+					<div class="des_hex">Hex - напиши описание</div>
+
+				</div>
+				<div class="mode">
+					<span class="span_mode">Режим: </span><button class="btn_time_bg"></button>
+					<div class="des_mode">Режим - напиши описание</div>
+				</div>
+				<div class="buttons">
+					<button class="btn_accept">Принять цвет</button> <button class="btn_remove">Сбросить</button>
+				</div>				
+			</div>
+
+			<div class="donos">
+				<div class="menu_cont"><div class="content_menu"><li>Цвет кнопошки №1</li><input type="range" id="r1" min="5" max="500"></div><div class="content_menu"><li>Цвет кнопошки №2</li><input type="range" id="r3" min="5" max="500"></div>
+				<div class="save_button_donos"><a class="button_save">Сохранить</a></div>
+				</div>
+			</div>
 
 			<div class="updates">
-				<span>Добавлено в:\n<p class="version">v1.5.0.6</p></span>
+				<span>Добавлено в:\n<p class="version"></p></span>
 			</div>
 		</div>
 	</div>`); 
+
+	document.querySelector('.donos').style.display = 'none'
+	document.querySelector('.version').innerText = version
 
 	if (btn_bool == true){
 		document.querySelector('.btn_deactiveted').className += ' active'
 		document.querySelector('.boll').className += ' active'
 	}
-	if (get_date()['bg_mode'] === true){
-		document.querySelector('.btn_time_bg').className += ' active'
-	}
-	document.querySelector('.btn_time_bg').innerText = 'Режим: '+get_date()['bg_mode']	
+	try{
+		if (get_date()['bg_mode'] === 'on'){
+			document.querySelector('.btn_time_bg').className += ' active'
+		}
+		document.querySelector('.btn_time_bg').innerText = get_date()['bg_mode']	
+	} catch(e){location.reload();}
 }
 
 function funintp(){
@@ -562,6 +595,22 @@ window.addEventListener('input', function (event) {	// Настройка цве
 	    }
 	}
 });
+
+window.addEventListener('mouseover', function(event) {
+	if (event.target.className === 'colorpicker_hex' || event.target.className === 'span_hex'){
+		document.querySelector('.des_hex').style.display = 'block';
+	} else { try{
+			document.querySelector('.des_hex').style = '';
+		} catch(e){}
+	}
+
+	if (event.target.className === 'span_mode' || event.target.className === 'mode'){
+		document.querySelector('.des_mode').style.display = 'block'
+	} else { try{
+			document.querySelector('.des_mode').style = '';
+		} catch(e){}
+	}
+})
 
 window.addEventListener('click', function(event) {
 
@@ -643,18 +692,27 @@ window.addEventListener('click', function(event) {
 	if (event.target.id === 'n_'){
 		list.className = 'dropdown'
 		document.querySelector('#unk').innerText = event.target.innerText
+		document.querySelector('.menu').style.display = 'block'
+		document.querySelector('.donos').style.display = 'none'
+		if (document.querySelector('#unk').innerText === 'Donos'){
+			document.querySelector('.menu').style.display = 'none'
+			document.querySelector('.donos').style.display = 'block'
+			donos_setting();
+		}
 	}
 
 	if (event.target.className === 'btn_time_bg'){
-		save_date(true)
+		save_date('on')
 		event.target.className += ' active'
+		updtime()
 		delinterval = setInterval(updtime, 60000);
-		event.target.innerText = 'Режим: ' +get_date()['bg_mode']
+		event.target.innerText = get_date()['bg_mode']
 	} else if(event.target.className === 'btn_time_bg active') {
-		save_date(false)
+		save_date('off')
 		event.target.className = 'btn_time_bg'
-		event.target.innerText = 'Режим: ' +get_date()['bg_mode']
+		event.target.innerText = get_date()['bg_mode']
 		clearInterval(delinterval);	
+		if (!styles){main()}
 	}
 
 	if (event.target.className === 'version'){
@@ -717,7 +775,7 @@ function get_date() {
 	return JSON.parse (localStorage.getItem (save_name));	
 }
 
-function save_date(mode=false) {
+function save_date(mode='off') {
 	try {
 		let your_id = document.scripts[document.scripts.length - 1].innerHTML.split('handlePageParams({"id":')[1].split(',"leftblocks"')[0]
 		let save_name = 'Цвет фона'
@@ -729,6 +787,10 @@ function save_date(mode=false) {
 
 		localStorage.setItem(save_name, JSON.stringify(save_object));	
 	} catch(e){}
+}
+
+function donos_setting(){
+	console.log()
 }
 
 one_bg = '#0d0e0d'
@@ -744,3 +806,6 @@ white_text = '#dee3e7'
 btn = '#4779bd'
 sep = '#414141'
 hover = '#3c3e3c'
+
+
+version = 'v1.5.0.6 1'

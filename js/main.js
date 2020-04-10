@@ -75,29 +75,6 @@ function addButtons() {
 	}
 }
 
-// ====================================[НАСТРОЙКИ ДЛЯ ЦВЕТОВ (верстка)]========================================================================================================================
-function addSetting() {
-	const setting_conteiner = document.querySelector('div.head_nav_item.fl_l.head_nav_btns');
-	const setting_main = document.createElement('div');
-	const setting = document.createElement('img');
-
-	// setting.src = 'https://i.imgur.com/3h636wU.png';
-	setting.src = 'https://i.imgur.com/KD3TUUE.png';
-	setting.className = 'setting_donos s_btn';
-	setting_main.className = 'head_nav_item fl_l top_nav_btn setting_donos';
-	setting_conteiner.after(setting_main);
-	setting_main.appendChild(setting)
-	setting_main.insertAdjacentHTML('beforeBegin',	
-		`<div id="audio_layer_tt" class="setting page_block"><div class="menu_setting audio_row__title">
-			<ul>
-				<li class="big_text">Настройки / <span>Цвет</span></li>
-			</ul><div class="menu_cont audio_row__title"><div class="content_menu"><li>Цвет кнопошки №1</li><input type="range" id="r1" min="5" max="500"></div><div class="content_menu"><li>Цвет кнопошки №2</li><input type="range" id="r3" min="5" max="500"></div>
-			<div class="save_button_donos feedback_row"><a class="button_save">Сохранить</a></div>
-			</div></div>`); 
-	const set = document.querySelector('.setting');
-	setting_main.appendChild(set)
-}
-
 // =================================[ПРОВЕРКА НАЖАТИЯ ПО КНОПКАМ]==================================================================================================================
 window.addEventListener('click', function(event) {
 	const save_setting = document.querySelector('.head_nav_item.fl_l.setting_donos');
@@ -185,12 +162,14 @@ window.addEventListener('click', function(event) {
 	}
 	else if (event.target.className === '' || event.target.className === 'menu_cont' || event.target.className === 'menu_setting'){}
 	else {
-		if (save_setting.className === 'head_nav_item fl_l top_nav_btn setting_donos save_setting active' && img_save_setting.className === 'setting_donos s_btn save_setting active'){
-			save_setting.className = 'head_nav_item fl_l top_nav_btn setting_donos';
-			img_save_setting.className = 'setting_donos s_btn';
-			img_save_setting.src = 'https://i.imgur.com/KD3TUUE.png';
-			menu_cont.style.display = 'none';
-		}
+		try{
+			if (save_setting.className === 'head_nav_item fl_l top_nav_btn setting_donos save_setting active' && img_save_setting.className === 'setting_donos s_btn save_setting active'){
+				save_setting.className = 'head_nav_item fl_l top_nav_btn setting_donos';
+				img_save_setting.className = 'setting_donos s_btn';
+				img_save_setting.src = 'https://i.imgur.com/KD3TUUE.png';
+				menu_cont.style.display = 'none';
+			}
+		} catch(e){}
 	}
 })
 
@@ -294,7 +273,6 @@ function delbuttons_test() {
 
 window.setTimeout(function () {
 	addButtons();
-	addSetting();
 }, 300)
 
 // ====================================[ОБНОВЛЕНИЕ КНОПОК]=======================================================================================================

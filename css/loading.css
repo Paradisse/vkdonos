@@ -11,21 +11,6 @@
 	border: 10px solid transparent;
 	border-right-color: #f00;
 }*/
-.nim-dialog:not(.nim-dialog_deleted).nim-dialog.nim-dialog_selected:hover:before, .nim-dialog:not(.nim-dialog_deleted).nim-dialog:hover:before, .nim-dialog._im_dialog:hover:before, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_muted.nim-dialog_selected:before, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_selected:before{
-	position: absolute;
-	content: "";
-    left: 0px;
-    transform: translate(-4px, 20px);
-	border: 10px solid transparent;
-	border-left-color: var(--white_text);
-}
-#side_bar ol li .left_row:hover:before {
-    position: absolute;
-    content: "";
-    transform: translate(-6px, 8px);
-    border: 6px solid transparent;
-    border-left-color: var( --white_text);
-}
 
 .cont_load {
 	text-align: center;

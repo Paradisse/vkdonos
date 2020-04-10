@@ -16,25 +16,7 @@ img.setting_donos{
     margin: 13px auto;
     padding-left: 33%;
     float: left;
-}
-.setting_donos:hover{
-	cursor: pointer;
-    /*background: #3d6898;*/
-}
-.head_nav_item.fl_l.setting_donos{
-    width: 45px;
-}
-.setting{
-    width: 191px;
-    height: auto;
-    background: #fff;
-    float: left;
-    color: #1e1e1e;
-    display: none;
-    border: 1px solid #c5d0db;
-    border-top: none;
-    box-shadow: 0 20px 40px 0 rgba(0,0,0,.3);
-    transition: opacity 100ms linear, top 100ms linear, visibility 100ms linear;
+    cursor: pointer;
 }
 .menu_setting ul li, .menu_cont li{
 	/*color: #1e1e1e;*/
@@ -44,20 +26,12 @@ img.setting_donos{
     text-align: center;
     margin: 10px 0 15px 0; 
 }
+.menu_cont{
+    margin-top: 40px;
+}
 .big_text{
     font-weight: 600;
 }
-.menu_setting.audio_row__title span{
-    color: var(--text);
-}
-.setting.page_block{
-    margin: 0;
-}
-
-.save_button_donos.feedback_row {
-    margin-top: 15px;
-}
-
 .menu_setting ul{
     padding-inline-start: 0;
 }
@@ -106,18 +80,19 @@ img.setting_donos{
 }
 .save_button_donos {
     padding: 11.8px 0;
-    margin-top: 15px;
+    margin-top: 45px;
     align-items: center;
     text-align: center;
     justify-content: center;
     font-weight: 500;
-    border-top: 1px solid #e7e8ec;
+    border-top: 1px solid #212321;
 }
 .save_button_donos:hover {
-    background: #edeef0;
+    background: #212321;
 }
-a.button_save:hover{
+a.button_save{
     text-decoration: none;
+    color: #fff;
 }
 
 
@@ -128,6 +103,7 @@ a.button_save:hover{
     text-align: center;
     width: 60%;
     margin-left: 20%;
+    color: #fff;
 }
 
 .color_block__ {
