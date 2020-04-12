@@ -16,13 +16,13 @@
         "js/main.js",
         "js/rating.js",
         "js/black.js",
-        "js/loading.js"
+        "js/new_loader.js"
       ],
       "css": [
         "css/styles.css",
         "css/test.css",
         "css/black.css",
-        "css/loading.css"
+        "css/new_loader.css"
       ],
       "run_at": "document_end"
     }

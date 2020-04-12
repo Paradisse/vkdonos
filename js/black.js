@@ -1,18 +1,50 @@
+let save_name = 'ext-donos'	
+
+class Save{
+	constructor(style='on', mode='off', aclick='off'){
+		this.style = style,
+		this.mode = mode,
+		this.aclick = aclick
+
+	}
+	save_date(){
+		localStorage.setItem(save_name, JSON.stringify({bg_styles: this.style, bg_mode: this.mode, auto_click: this.aclick}));	
+	}
+
+}
+save = new Save();
 window.setTimeout(function () {
 	try {
-		if (localStorage.getItem('Цвет фона') != null){
+		if (localStorage.getItem(save_name) != null){
 			if (get_date()['bg_mode'] === 'on'){
 				delinterval = setInterval(updtime, 60000);
 			}
 			main()
 		}
 		else {
-			save_date()
+			save.save_date()
 			main()
 		}
-	} catch (e) {}
-}, 3000)
 
+		if (get_date()['bg_styles'] === 'off'){
+			const styles = document.querySelector('.style_theme');
+			styles.remove();
+		}
+	} catch (e) {}
+
+}, 3000)
+window.setTimeout(function(){
+	document.querySelector('.autoclick').innerText = get_date()['auto_click'] 
+	if (get_date()['auto_click'] === 'on'){
+		setTimeout(() => {unloading()}, 3500)
+	} else{
+		setTimeout(() => {document.querySelector('.btn_autoclick_').style.display = 'block'}, 3500)
+	}
+}, 100)
+function unloading() {
+	const loading = document.querySelector('.main-loader');
+	loading.remove()
+}
 
 function main() {
 	
@@ -434,17 +466,19 @@ function main() {
 	.pv_cont .pv_closed_commments_placeholder{background-image: url("https://i.imgur.com/IMydyAG.png")}
 	.no_posts_cover{background-image: url(https://i.imgur.com/ll6LrUq.png)}
 	.im-page .im-page--center-empty{background: url(https://i.imgur.com/zSxzsLb.png) 60px 0px no-repeat}
-	.feedback_img:after, .im_grid>img:after, .nim-peer--photo>img:after, img[src*="/images/dquestion_i"], [style*="/images/camera_"] {background: url(https://i.imgur.com/LI22hN0.png) -6px no-repeat; background-size: 55px;}
-	img[src*="/images/camera_"]{filter: invert(0.93)}
+	.feedback_img:after, .im_grid>img:after, .nim-peer--photo>img:after, img[src*="/images/dquestion_i"] {background: url(https://i.imgur.com/LI22hN0.png) -6px no-repeat; background-size: 55px;}
+	img[src*="/images/camera_"], span.stories_feed_preview_author_cell[style="background-image: url('/images/camera_50.png?ava=1')"]{filter: invert(0.93)}
 	.nim-dialog:not(.nim-dialog_deleted).nim-dialog.nim-dialog_selected:hover:before, .nim-dialog:not(.nim-dialog_deleted).nim-dialog:hover:before, .nim-dialog._im_dialog:hover:before, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_muted.nim-dialog_selected:before, .nim-dialog:not(.nim-dialog_deleted).nim-dialog_selected:before{position: absolute; content: ""; left: 0px; transform: translate(-4px, 20px); border: 10px solid transparent; border-left-color: var(--white_text)}
 	#side_bar ol li .left_row:hover:before {position: absolute; content: ""; transform: translate(-6px, 8px); border: 6px solid transparent; border-left-color: var( --white_text)}
 	img[src*="/images/pics/spamfight.gif"]{filter: invert(0.9) grayscale(1)}
 	img[src*="/images/deactivated_"]{filter: invert(0.98)}
 	a#ads_ad_box2_ad_e65925ae5f0d5bbb{display:none}
+	.audio_page_player2 .audio_page_player_status.audio_page_player_btn_enabled .btn_icon, .audio_page_player2 .audio_page_player_status .btn_icon{background-color: var(--bg)}
+	#audio_status_tt .audio_status_sep{background-color: var(--main_bg)}
 	`
 }
 
-var btn_bool = false
+// var btn_bool = false
 
 function menu_color_style() {
 
@@ -481,12 +515,12 @@ function menu_color_style() {
 					<span class="span_hex">HEX: #</span>
 					<input type="text" id="t1" placeholder="Введите цвет">
 					
-					<div class="des_hex">Hex - напиши описание</div>
+					<div class="des_hex">Ручное изменение цвета в восьмеричной кодировке</div>
 
 				</div>
 				<div class="mode">
 					<span class="span_mode">Режим: </span><button class="btn_time_bg"></button>
-					<div class="des_mode">Режим - напиши описание</div>
+					<div class="des_mode">Смена темы по времени (день/ночь)</div>
 				</div>
 				<div class="buttons">
 					<button class="btn_accept">Принять цвет</button> <button class="btn_remove">Сбросить</button>
@@ -504,15 +538,13 @@ function menu_color_style() {
 			</div>
 		</div>
 	</div>`); 
-
 	document.querySelector('.donos').style.display = 'none'
 	document.querySelector('.version').innerText = version
-
-	if (btn_bool == true){
-		document.querySelector('.btn_deactiveted').className += ' active'
-		document.querySelector('.boll').className += ' active'
-	}
 	try{
+		if (get_date()['bg_styles'] === 'off'){
+			document.querySelector('.btn_deactiveted').className += ' active'
+			document.querySelector('.boll').className += ' active'
+		}
 		if (get_date()['bg_mode'] === 'on'){
 			document.querySelector('.btn_time_bg').className += ' active'
 		}
@@ -619,7 +651,6 @@ window.addEventListener('click', function(event) {
     const body = document.body;
 	const styles = document.querySelector('.style_theme');
 
-
 	if (event.target.className === 'menu_style_btn') {
 		menu_color_style();
 		const conteiner = document.querySelector('.conteiner_style');
@@ -660,8 +691,8 @@ window.addEventListener('click', function(event) {
 			event.target.lastElementChild.className += ' active'
 			event.target.className += ' active'
 		}
-		btn_bool = true;
-
+		save.style = 'off';
+		save.save_date()
 		styles.remove()
 	} else if (event.target.className === 'btn_deactiveted active' || event.target.className === 'boll active') {
 		if (event.target.lastElementChild == null){
@@ -671,12 +702,12 @@ window.addEventListener('click', function(event) {
 			event.target.lastElementChild.className = 'boll'
 			event.target.className = 'btn_deactiveted'
 		}
-		btn_bool = false;
-		
+		save.style = 'on';
+		save.save_date()
 		main()	
 	}
 
-	if (btn_bool === true){
+	if (get_date()['bg_styles'] === 'off'){
 		document.body.style.backgroundColor = '#edeef0';
 	}
 
@@ -702,13 +733,15 @@ window.addEventListener('click', function(event) {
 	}
 
 	if (event.target.className === 'btn_time_bg'){
-		save_date('on')
+		save.mode = 'on'
+		save.save_date()
 		event.target.className += ' active'
 		updtime()
 		delinterval = setInterval(updtime, 60000);
 		event.target.innerText = get_date()['bg_mode']
 	} else if(event.target.className === 'btn_time_bg active') {
-		save_date('off')
+		save.mode = 'off'
+		save.save_date()
 		event.target.className = 'btn_time_bg'
 		event.target.innerText = get_date()['bg_mode']
 		clearInterval(delinterval);	
@@ -717,6 +750,22 @@ window.addEventListener('click', function(event) {
 
 	if (event.target.className === 'version'){
 		alert('Пока что не написано')
+	}
+
+	if (event.target.className === 'autoclick-div'){
+		event.target.className += ' a_on'
+		save.aclick = 'on'
+		save.save_date()
+		document.querySelector('.autoclick').innerText = get_date()['auto_click']
+	} else if(event.target.className === 'autoclick-div a_on'){
+		event.target.className = 'autoclick-div'
+		save.aclick = 'off'
+		save.save_date()
+		document.querySelector('.autoclick').innerText = get_date()['auto_click']
+	}
+
+	if (event.target.className === 'btn_autoclick_'){
+		unloading()
 	}
 
 });
@@ -771,23 +820,22 @@ String.prototype.engForrus = function() {
 }
 
 function get_date() {
-	let save_name = 'Цвет фона'	
 	return JSON.parse (localStorage.getItem (save_name));	
 }
 
-function save_date(mode='off') {
-	try {
-		let your_id = document.scripts[document.scripts.length - 1].innerHTML.split('handlePageParams({"id":')[1].split(',"leftblocks"')[0]
-		let save_name = 'Цвет фона'
-		var save_object = {
-			user_id : your_id, 
-			bg_mode : mode, 
-			bg : null
-		}
+// function save_date(styles='on', mode='off') {
+// 	try {
+// 		let your_id = document.scripts[document.scripts.length - 1].innerHTML.split('handlePageParams({"id":')[1].split(',"leftblocks"')[0]
+// 		let save_name = 'Цвет фона'
+// 		var save_object = {
+// 			user_id : your_id, 
+// 			bg_styles: styles,
+// 			bg_mode : mode
+// 		}
 
-		localStorage.setItem(save_name, JSON.stringify(save_object));	
-	} catch(e){}
-}
+// 		localStorage.setItem(save_name, JSON.stringify(save_object));	
+// 	} catch(e){}
+// }
 
 function donos_setting(){
 	console.log()
@@ -808,4 +856,4 @@ sep = '#414141'
 hover = '#3c3e3c'
 
 
-version = 'v1.5.0.6 1'
+version = 'v1.5.0.6 2'
